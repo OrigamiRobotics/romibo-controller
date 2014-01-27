@@ -1,0 +1,13 @@
+PODS:
+  - ShowKit (0.7.11)
+  - SparkInspector (1.1)
+
+DEPENDENCIES:
+  - ShowKit
+  - SparkInspector
+
+SPEC CHECKSUMS:
+  ShowKit: 7e10e399395b08ce7873aff29e0b872fc8603aec
+  SparkInspector: 8eebd96bf33d608504ee03782d8046fa5016b1ef
+
+COCOAPODS: 0.28.0

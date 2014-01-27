@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="KQ5-2C-mjf">
+    <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--Edit Navigation View Controller-->
+        <scene sceneID="BT9-hL-JiN">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="KQ5-2C-mjf" customClass="RMBOEditNavigationViewController" sceneMemberID="viewController">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Sv-cE-Tnt">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="qt8-Ng-Hea" kind="relationship" relationship="rootViewController" id="zo6-Cd-B9b"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSC-Dm-7Sl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-969" y="-333"/>
+        </scene>
+        <!--Select Category For Edit View Controller-->
+        <scene sceneID="T4F-m6-byE">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="qt8-Ng-Hea" customClass="RMBOSelectCategoryForEditViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="Lmr-28-eth">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JcI-KA-2ig">
+                            <size key="itemSize" width="250" height="250"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="50" minY="50" maxX="50" maxY="50"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="MCe-og-3F8" customClass="RMBOCategoryCollectionViewCell">
+                                <rect key="frame" x="50" y="114" width="250" height="250"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="az6-sa-zQc">
+                                            <rect key="frame" x="25" y="31" width="200" height="133"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBc-50-ZNP">
+                                            <rect key="frame" x="25" y="195" width="200" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="kCB-u0-cwk"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="27"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="aBc-50-ZNP" secondAttribute="bottom" constant="20" id="4KL-YN-H1k"/>
+                                    <constraint firstItem="aBc-50-ZNP" firstAttribute="top" secondItem="az6-sa-zQc" secondAttribute="bottom" constant="31" id="5pJ-zg-ZeY"/>
+                                    <constraint firstItem="aBc-50-ZNP" firstAttribute="leading" secondItem="az6-sa-zQc" secondAttribute="leading" id="AhB-Wx-Nez"/>
+                                    <constraint firstItem="az6-sa-zQc" firstAttribute="trailing" secondItem="aBc-50-ZNP" secondAttribute="trailing" id="G2G-Ki-2Xf"/>
+                                    <constraint firstItem="aBc-50-ZNP" firstAttribute="centerX" secondItem="MCe-og-3F8" secondAttribute="centerX" id="WIc-6y-Eue"/>
+                                    <constraint firstItem="az6-sa-zQc" firstAttribute="leading" secondItem="MCe-og-3F8" secondAttribute="leading" constant="25" id="jlH-Fp-FWv"/>
+                                    <constraint firstItem="az6-sa-zQc" firstAttribute="top" secondItem="MCe-og-3F8" secondAttribute="top" constant="31" id="s9J-am-Qei"/>
+                                </constraints>
+                                <size key="customSize" width="250" height="250"/>
+                                <connections>
+                                    <outlet property="categoryImageView" destination="az6-sa-zQc" id="n3w-GF-7GE"/>
+                                    <outlet property="categoryName" destination="aBc-50-ZNP" id="sNC-tJ-YIQ"/>
+                                    <segue destination="RmB-uP-xit" kind="push" id="jvR-zP-Zcg"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="qt8-Ng-Hea" id="Dly-sJ-WSu"/>
+                            <outlet property="delegate" destination="qt8-Ng-Hea" id="e7L-Yw-yY8"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="B7o-wI-MYe">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="3Mf-Z3-3GI">
+                            <connections>
+                                <action selector="doneEditingAction:" destination="qt8-Ng-Hea" id="9hF-yy-PA4"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="New" id="Ut5-tD-beP">
+                            <connections>
+                                <action selector="createNewCategoryAction:" destination="qt8-Ng-Hea" id="n3X-Tc-eER"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pxo-KT-8lk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="169" y="-344"/>
+        </scene>
+        <!--Category Editor View Controller-->
+        <scene sceneID="8e9-am-KWI">
+            <objects>
+                <viewController id="RmB-uP-xit" customClass="RMBOCategoryEditorViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9aG-1L-ltF"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Xk-9W-9Af"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wPt-cn-kym">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Category Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kfl-PL-jNG">
+                                <rect key="frame" x="20" y="94" width="461" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.83529411760000005" green="0.83529411760000005" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="37"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="updateCategoryField:" destination="RmB-uP-xit" eventType="editingChanged" id="6an-mu-Iyh"/>
+                                    <outlet property="delegate" destination="RmB-uP-xit" id="p7N-KE-Ftb"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPR-9a-duz">
+                                <rect key="frame" x="733" y="97" width="271" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Add New Button" backgroundImage="actionButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createNewButtonAction:" destination="RmB-uP-xit" eventType="touchUpInside" id="G5x-1k-4rc"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="thh-F6-V3V">
+                                <rect key="frame" x="20" y="179" width="700" height="505"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="F7z-6B-ofh" customClass="LXReorderableCollectionViewFlowLayout">
+                                    <size key="itemSize" width="170" height="60"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="buttonCell" id="fQh-YU-REt" customClass="RMBOButtonCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ght-WJ-vrw">
+                                                    <rect key="frame" x="5" y="6" width="162" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="buttonWasPressed:" destination="fQh-YU-REt" eventType="touchUpInside" id="1AC-ZV-3h5"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="cellButton" destination="Ght-WJ-vrw" id="xrY-yL-nGm"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="pyw-fy-wn7" id="NmK-zH-Za8"/>
+                                    <outlet property="delegate" destination="RmB-uP-xit" id="iAu-3l-xcy"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sk9-5h-fOc">
+                                <rect key="frame" x="728" y="179" width="288" height="505"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jln-4N-3Rf">
+                                        <rect key="frame" x="6" y="453" width="271" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Delete Button" backgroundImage="actionButton">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="deleteButtonAction:" destination="RmB-uP-xit" eventType="touchUpInside" id="514-Pd-FqF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XW9-K4-NBt">
+                                        <rect key="frame" x="210" y="204" width="64" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="speaker" backgroundImage="actionButton">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="previewSpeechAction:" destination="RmB-uP-xit" eventType="touchUpInside" id="8Ko-3q-0ET"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Text Color" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H39-Gz-fSa">
+                                        <rect key="frame" x="6" y="348" width="268" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Button Color" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtS-zF-S5d">
+                                        <rect key="frame" x="6" y="260" width="248" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Speech Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpc-RK-3u5">
+                                        <rect key="frame" x="6" y="67" width="95" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Button Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ie-hp-Z9s">
+                                        <rect key="frame" x="6" y="0.0" width="89" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0QH-9v-Adg">
+                                        <rect key="frame" x="6" y="29" width="271" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <action selector="updateTitleField:" destination="RmB-uP-xit" eventType="editingDidEnd" id="sMK-WI-uHr"/>
+                                            <outlet property="delegate" destination="RmB-uP-xit" id="che-bc-z5n"/>
+                                        </connections>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDY-3I-TZn">
+                                        <rect key="frame" x="6" y="96" width="271" height="86"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="RmB-uP-xit" id="6jb-vv-MJH"/>
+                                        </connections>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLS-5S-NRV">
+                                        <rect key="frame" x="6" y="289" width="271" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="updateButtonColorAction:" destination="RmB-uP-xit" eventType="touchUpInside" id="bIy-7W-baz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAS-KT-UOn">
+                                        <rect key="frame" x="6" y="377" width="271" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="updateButtonTextColorAction:" destination="RmB-uP-xit" eventType="touchUpInside" id="o5Y-nC-71r"/>
+                                        </connections>
+                                    </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qlo-MO-dZR">
+                                        <rect key="frame" x="7" y="211" width="197" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="speechSliderRateChanged:" destination="RmB-uP-xit" eventType="valueChanged" id="pDB-uO-VOJ"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7AA-ax-s4r">
+                                <rect key="frame" x="489" y="94" width="231" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="updatePalletColorAction:" destination="RmB-uP-xit" eventType="touchUpInside" id="Bad-y5-m5v"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tab Color" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnI-3h-l6a">
+                                <rect key="frame" x="556" y="108" width="96" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85490196078431369" green="0.85882352941176465" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="hTu-jB-uHF">
+                        <barButtonItem key="rightBarButtonItem" title="Delete Palette" id="R65-Rc-hfF">
+                            <connections>
+                                <action selector="deletePaletteAction:" destination="RmB-uP-xit" id="Hbn-KB-UoN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="buttonCollectionView" destination="thh-F6-V3V" id="Fx1-bU-55a"/>
+                        <outlet property="buttonColorButton" destination="TLS-5S-NRV" id="exQ-CA-yVy"/>
+                        <outlet property="buttonTextColorButton" destination="YAS-KT-UOn" id="Nez-Ya-W4B"/>
+                        <outlet property="buttonTitleField" destination="0QH-9v-Adg" id="7ux-D5-6od"/>
+                        <outlet property="categoryNameField" destination="kfl-PL-jNG" id="J9K-nJ-DxJ"/>
+                        <outlet property="dataSource" destination="pyw-fy-wn7" id="WGp-Yv-ZcI"/>
+                        <outlet property="deleteActionButtonButton" destination="jln-4N-3Rf" id="lmX-nM-pTh"/>
+                        <outlet property="editorView" destination="Sk9-5h-fOc" id="wsI-7f-W8a"/>
+                        <outlet property="paletteColorButton" destination="7AA-ax-s4r" id="Cr1-YB-oe2"/>
+                        <outlet property="previewButton" destination="XW9-K4-NBt" id="7sD-ew-TXW"/>
+                        <outlet property="speechField" destination="SDY-3I-TZn" id="quY-Ch-Oyh"/>
+                        <outlet property="speechSlider" destination="Qlo-MO-dZR" id="1Vq-az-eJO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tuq-U4-9Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="pyw-fy-wn7" customClass="RMBOActionDataSource">
+                    <connections>
+                        <outlet property="delegate" destination="RmB-uP-xit" id="cK2-d0-Zxa"/>
+                    </connections>
+                </customObject>
+            </objects>
+            <point key="canvasLocation" x="1287" y="-344"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="actionButton" width="215" height="48"/>
+        <image name="speaker" width="32" height="32"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="lightContent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,2 @@
+PODS_SHOWKIT_FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/ShowKit"
+PODS_SHOWKIT_OTHER_LDFLAGS = -lc++ -lresolv -lz -framework AVFoundation -framework AudioToolbox -framework CFNetwork -framework CoreGraphics -framework CoreMedia -framework CoreVideo -framework OpenGLES -framework QuartzCore -framework ShowKit -framework SystemConfiguration
