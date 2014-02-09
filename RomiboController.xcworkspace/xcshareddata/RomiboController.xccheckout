@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>47664342-0D45-4037-80AA-7194B0AA6AFB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RomiboController</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1819C682-737B-463D-AA4B-BBB451D40403</key>
+		<string>ssh://github.com/romibo/romibo_controller.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RomiboController.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1819C682-737B-463D-AA4B-BBB451D40403</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/romibo/romibo_controller.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1819C682-737B-463D-AA4B-BBB451D40403</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1819C682-737B-463D-AA4B-BBB451D40403</string>
+			<key>IDESourceControlWCCName</key>
+			<string>romibo_controller</string>
+		</dict>
+	</array>
+</dict>
+</plist>

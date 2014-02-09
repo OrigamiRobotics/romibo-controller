@@ -6,12 +6,6 @@
 // project.
 
 
-// ShowKit
-#define COCOAPODS_POD_AVAILABLE_ShowKit
-#define COCOAPODS_VERSION_MAJOR_ShowKit 0
-#define COCOAPODS_VERSION_MINOR_ShowKit 7
-#define COCOAPODS_VERSION_PATCH_ShowKit 11
-
 // SparkInspector
 #define COCOAPODS_POD_AVAILABLE_SparkInspector
 #define COCOAPODS_VERSION_MAJOR_SparkInspector 1

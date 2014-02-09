@@ -91,11 +91,11 @@
     }
     
     [self customizeViews];
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(showkitStatusChanging:)
-     name:SHKConnectionStatusChangedNotification
-     object:nil];
+//    [[NSNotificationCenter defaultCenter]
+//     addObserver:self
+//     selector:@selector(showkitStatusChanging:)
+//     name:SHKConnectionStatusChangedNotification
+//     object:nil];
     _lastX = 0.0;
     _lastY = 0.0;
 }
@@ -404,14 +404,14 @@
 {
     if ([alertView isEqual:_showkitLoginAlertView]) {
         if (buttonIndex == 1) {
-            [ShowKit login:[NSString stringWithFormat:@"%@.%@", kRMBOShowkitAccountNumber, [[alertView textFieldAtIndex:0] text]]
-                  password:[[alertView textFieldAtIndex:1] text]
-       withCompletionBlock:^(NSString *const connectionStatus) {
-                NSLog(@"%@", connectionStatus);
-                [UIView animateWithDuration:0.4 animations:^{
-                    [_manageShowKitButton setAlpha:1.0];
-                }];
-            }];
+//            [ShowKit login:[NSString stringWithFormat:@"%@.%@", kRMBOShowkitAccountNumber, [[alertView textFieldAtIndex:0] text]]
+//                  password:[[alertView textFieldAtIndex:1] text]
+//       withCompletionBlock:^(NSString *const connectionStatus) {
+//                NSLog(@"%@", connectionStatus);
+//                [UIView animateWithDuration:0.4 animations:^{
+//                    [_manageShowKitButton setAlpha:1.0];
+//                }];
+//            }];
         }
     }
     else {
@@ -602,14 +602,15 @@
 {
     [self showNotConnectedDisplay];
     [UIView animateWithDuration:0.8 animations:^{
-        [_robotControls setAlpha:kRMBOControlsDisabledAlpha];
-        [_robotControls setUserInteractionEnabled:NO];
+        [_robotControls setAlpha:0.0];
+        [_robotControls setUserInteractionEnabled:YES];
     }];
     
 }
 
 - (IBAction)showkitAction:(id)sender
 {
+    /*
     NSString* connectionStatus = [ShowKit getStateForKey:SHKConnectionStatusKey];
     if (![connectionStatus isEqualToString:SHKConnectionStatusInCall]) {
         [self initShowkitVideoCall];
@@ -617,11 +618,13 @@
     else {
         [self endShowkitCall];
     }
+     */
     
 }
 
 - (void)initShowkitVideoCall
 {
+    /*
     [_manageShowKitButton setHidden:YES];
     [_showkitActivityIndicator startAnimating];
      [ShowKit login:@"584.romibo_test_controller" password:@"iloverobots" withCompletionBlock:^(NSString *const connectionStatus) {
@@ -630,11 +633,13 @@
          [ShowKit setState:_remoteVideoView forKey:SHKMainDisplayViewKey];
          [ShowKit initiateCallWithSubscriber:@"584.romibo_test_client"];
      }];
+     */
     
 }
 
 - (void)manageShowkitLogin
 {
+    /*
     NSString *connectionStatus = [ShowKit getStateForKey:SHKConnectionStatusKey];
     if ([connectionStatus isEqualToString:SHKConnectionStatusNotConnected]) {
         _showkitLoginAlertView = [[UIAlertView alloc] initWithTitle:@"Login into video sharing" message:@"Please enter your Romibo video sharing username and password" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Login", nil];
@@ -645,19 +650,23 @@
     else {
         
     }
+     */
 }
 
 - (void)endShowkitCall
 {
+    /*
     [ShowKit hangupCall];
     [_manageShowKitButton setHidden:NO];
     [_remoteVideoView setHidden:YES];
     [_remoteVideoView setTransform:CGAffineTransformMakeRotation(M_PI_2)];
     [_manageShowKitButton setTitle:@"Turn on video streaming" forState:UIControlStateNormal];
+     */
 }
 
 - (void)showkitStatusChanging:(NSNotification *)notification
 {
+    /*
     SHKNotification* showNotice ;
     NSString * value ;
     
@@ -694,6 +703,7 @@
         [_manageShowKitButton setHidden:NO];
         [errorAlert show];
     }
+     */
 }
 
 - (void)showNotConnectedDisplay

@@ -2,23 +2,23 @@
 //  RMBOAction.m
 //  RomiboController
 //
-//  Created by Doug Suriano on 11/22/13.
-//  Copyright (c) 2013 Romibo. All rights reserved.
+//  Created by Doug Suriano on 2/4/14.
+//  Copyright (c) 2014 Romibo. All rights reserved.
 //
 
 #import "RMBOAction.h"
 #import "RMBOCategory.h"
-#import <AVFoundation/AVFoundation.h>
+
 
 @implementation RMBOAction
 
-@dynamic buttonTitle;
 @dynamic buttonColor;
+@dynamic buttonTitle;
 @dynamic buttonTitleColor;
-@dynamic speechPhrase;
-@dynamic category;
-@dynamic threeBasedIndex;
 @dynamic speachSpeedRate;
+@dynamic speechPhrase;
+@dynamic threeBasedIndex;
+@dynamic category;
 
 - (void)awakeFromInsert
 {
@@ -28,9 +28,15 @@
     self.buttonTitle = @"Untitled button";
     self.speechPhrase = @"";
     self.speachSpeedRate = [NSNumber numberWithFloat:AVSpeechUtteranceDefaultSpeechRate];
-    
 }
 
-
+- (NSDictionary *)dictionaryRepresentation
+{
+    return @{@"buttonTitle" : self.buttonTitle,
+             @"speechSpeedRate" : self.speachSpeedRate,
+             @"speechPhrase" : self.speechPhrase,
+             @"threeBasedIndex" : self.threeBasedIndex
+             };
+}
 
 @end

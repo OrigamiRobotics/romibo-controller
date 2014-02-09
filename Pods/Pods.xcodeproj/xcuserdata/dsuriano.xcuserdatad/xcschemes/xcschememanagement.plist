@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-ShowKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-SparkInspector.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>34B5E972611848B7B5138F96</key>
+		<key>BA5D1EA5707646BDBA392850</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>634E4E45A6754DAD939F1CBF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E2BE3D30B78A4B708AB8D63D</key>
+		<key>BD4D143FE9AE4DC89CF78A93</key>
 		<dict>
 			<key>primary</key>
 			<true/>

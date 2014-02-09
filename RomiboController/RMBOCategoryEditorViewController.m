@@ -470,7 +470,39 @@
     return iv;
 }
 
+- (IBAction)sendPalletAction:(id)sender
+{
+    if (![MFMailComposeViewController canSendMail]) {
+        UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Email not setup" message:@"In order to send pallets, you must setup your iPad's email" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [error show];
+        return;
+    }
+    
+    NSError *error = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:_category.dictionaryRepresentation options:0 error:&error];
+    NSString *JSONString = [[NSString alloc] initWithBytes:[jsonData bytes] length:[jsonData length] encoding:NSUTF8StringEncoding];
+    
+    NSData *stringData = [JSONString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    [mc setSubject:@"Romibo Pallet"];
+    
+    NSString *timeInterval = [NSString stringWithFormat:@"%f", [NSDate timeIntervalSinceReferenceDate]];
+    timeInterval = [timeInterval stringByReplacingOccurrencesOfString:@"." withString:@""];
+    
+    NSString *fileName = [NSString stringWithFormat:@"%@%@.rmbo", [[_category name] stringByReplacingOccurrencesOfString:@" " withString:@""], timeInterval];
+    
+    [mc addAttachmentData:stringData mimeType:@"text/plain" fileName:fileName];
+    
+    [mc setMailComposeDelegate:self];
+    
+    [self presentViewController:mc animated:YES completion:nil];
+}
 
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [controller dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 @end

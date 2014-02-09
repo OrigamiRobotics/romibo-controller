@@ -14,15 +14,6 @@
 		</dict>
 		<dict>
 			<key>FooterText</key>
-			<string>© 2013 ShowKit. All rights reserved.
-</string>
-			<key>Title</key>
-			<string>ShowKit</string>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-		</dict>
-		<dict>
-			<key>FooterText</key>
 			<string></string>
 			<key>Title</key>
 			<string>SparkInspector</string>

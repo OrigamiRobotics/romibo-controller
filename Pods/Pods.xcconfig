@@ -1,5 +1,6 @@
-FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/ShowKit" "${PODS_ROOT}/SparkInspector"
+FRAMEWORK_SEARCH_PATHS = "${PODS_ROOT}/SparkInspector"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/ShowKit" "${PODS_ROOT}/Headers/SparkInspector"
-OTHER_LDFLAGS = -ObjC -lc++ -lresolv -lz -framework AVFoundation -framework AudioToolbox -framework CFNetwork -framework CoreGraphics -framework CoreMedia -framework CoreVideo -framework OpenGLES -framework QuartzCore -framework ShowKit -framework SparkInspector -framework SystemConfiguration
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/SparkInspector"
+OTHER_CFLAGS = $(inherited) "-isystem${PODS_ROOT}/Headers" "-isystem${PODS_ROOT}/Headers/SparkInspector"
+OTHER_LDFLAGS = -ObjC -lz -framework QuartzCore -framework SparkInspector
 PODS_ROOT = ${SRCROOT}/Pods

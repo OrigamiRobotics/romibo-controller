@@ -12,6 +12,7 @@
 #import "UIColor+RMBOColors.h"
 #import "RMBOActionDataSource.h"
 @import AVFoundation;
+@import MessageUI;
 
 @class RMBOCategory;
 
@@ -21,7 +22,7 @@ typedef NS_ENUM(NSInteger, RMBOCurrentColorPicker) {
     RMBOButtonTextColor
 };
 
-@interface RMBOCategoryEditorViewController : UIViewController <UICollectionViewDelegate, RMBOColorPickerDelegate, UIAlertViewDelegate, AVSpeechSynthesizerDelegate, UITextViewDelegate, UITextFieldDelegate, RMBOActionDataSourceDelegate>
+@interface RMBOCategoryEditorViewController : UIViewController <UICollectionViewDelegate, RMBOColorPickerDelegate, UIAlertViewDelegate, AVSpeechSynthesizerDelegate, UITextViewDelegate, UITextFieldDelegate, RMBOActionDataSourceDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *mainContext;
 @property (nonatomic, strong) RMBOCategory *category;
@@ -64,5 +65,6 @@ typedef NS_ENUM(NSInteger, RMBOCurrentColorPicker) {
 - (void)deletePalette;
 - (IBAction)updatePalletColorAction:(id)sender;
 - (IBAction)speechSliderRateChanged:(id)sender;
+- (IBAction)sendPalletAction:(id)sender;
 
 @end

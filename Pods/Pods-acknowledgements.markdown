@@ -1,11 +1,6 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## ShowKit
-
-© 2013 ShowKit. All rights reserved.
-
-
 ## SparkInspector
 
 

@@ -8,6 +8,8 @@
 #import "AppDelegate.h"
 
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
+#import "RMBOAction.h"
+#import "RMBOCategory.h"
 
 @implementation AppDelegate
 
@@ -146,6 +148,58 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if (url){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Import Pallet?" message:@"Do you want to import this pallet into your library?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Import", nil];
+        [alertView show];
+        _jsonString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
+        
+    }
+    return YES;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        NSError *error = nil;
+        NSData *data = [_jsonString dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+        
+        
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:_managedObjectContext];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entity];
+        
+        
+        NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"displayOrder" ascending:YES];
+        [request setSortDescriptors:@[descriptor]];
+        
+        NSArray *fetchedCategories = [_managedObjectContext executeFetchRequest:request error:&error];
+        
+        
+        
+        RMBOCategory *category = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:_managedObjectContext];
+        
+        [category setDisplayOrder:[NSNumber numberWithInteger:fetchedCategories.count + 1]];
+        [category setName:jsonDict[@"name"]];
+        
+        for (NSDictionary *actionDict in jsonDict[@"actions"]) {
+            RMBOAction *action = [NSEntityDescription insertNewObjectForEntityForName:@"Action" inManagedObjectContext:_managedObjectContext];
+            [action setSpeechPhrase:actionDict[@"speechPhrase"]];
+            [action setThreeBasedIndex:actionDict[@"threeBasedIndex"]];
+            [action setButtonTitle:actionDict[@"buttonTitle"]];
+            [action setSpeachSpeedRate:actionDict[@"speechSpeedRate"]];
+            [action setCategory:category];
+            [category addActionsObject:action];
+        }
+        
+        [_managedObjectContext save:nil];
+        
+        
+    }
 }
 
 

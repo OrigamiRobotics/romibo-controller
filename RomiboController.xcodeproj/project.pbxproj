@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2A0315D91851A3D800782D89 /* RMBOTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0315D81851A3D800782D89 /* RMBOTabCell.m */; };
+		2A06257918A1727500FD9F2D /* RMBOAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06257818A1727500FD9F2D /* RMBOAction.m */; };
+		2A06257C18A1727500FD9F2D /* RMBOCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A06257B18A1727500FD9F2D /* RMBOCategory.m */; };
 		2A0F3D5B183DDD350036C0CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0F3D5A183DDD350036C0CB /* Foundation.framework */; };
 		2A0F3D5D183DDD350036C0CB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0F3D5C183DDD350036C0CB /* CoreGraphics.framework */; };
 		2A0F3D5F183DDD350036C0CB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0F3D5E183DDD350036C0CB /* UIKit.framework */; };
@@ -28,8 +30,6 @@
 		2A6E4C791853FB7100F5D03C /* RMBOPopoverMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E4C771853FB7100F5D03C /* RMBOPopoverMenuViewController.m */; };
 		2A6E4C7A1853FB7100F5D03C /* RMBOPopoverMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A6E4C781853FB7100F5D03C /* RMBOPopoverMenuViewController.xib */; };
 		2A782A701840800F0008F2AA /* RMBOCategoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A782A6F1840800F0008F2AA /* RMBOCategoryCollectionViewCell.m */; };
-		2A782A77184081F50008F2AA /* RMBOCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A782A76184081F50008F2AA /* RMBOCategory.m */; };
-		2A782A7B1840823F0008F2AA /* RMBOAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A782A7A1840823F0008F2AA /* RMBOAction.m */; };
 		2A782A7E184085D60008F2AA /* SeedCategories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A782A7D184085D60008F2AA /* SeedCategories.plist */; };
 		2A782A811840866C0008F2AA /* RMBOSelectCategoryForEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A782A801840866C0008F2AA /* RMBOSelectCategoryForEditViewController.m */; };
 		2A782A841840894A0008F2AA /* RMBOEditNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A782A831840894A0008F2AA /* RMBOEditNavigationViewController.m */; };
@@ -65,6 +65,10 @@
 /* Begin PBXFileReference section */
 		2A0315D71851A3D800782D89 /* RMBOTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBOTabCell.h; sourceTree = "<group>"; };
 		2A0315D81851A3D800782D89 /* RMBOTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBOTabCell.m; sourceTree = "<group>"; };
+		2A06257718A1727500FD9F2D /* RMBOAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBOAction.h; sourceTree = "<group>"; };
+		2A06257818A1727500FD9F2D /* RMBOAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBOAction.m; sourceTree = "<group>"; };
+		2A06257A18A1727500FD9F2D /* RMBOCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBOCategory.h; sourceTree = "<group>"; };
+		2A06257B18A1727500FD9F2D /* RMBOCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBOCategory.m; sourceTree = "<group>"; };
 		2A0F3D57183DDD350036C0CB /* RomiboController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RomiboController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0F3D5A183DDD350036C0CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2A0F3D5C183DDD350036C0CB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -86,15 +90,12 @@
 		2A31CF7B184075F2007A6DB2 /* EditStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditStoryboard.storyboard; sourceTree = "<group>"; };
 		2A31CF7D184077EF007A6DB2 /* RMBORobotControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBORobotControlViewController.h; sourceTree = "<group>"; };
 		2A31CF7E184077EF007A6DB2 /* RMBORobotControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBORobotControlViewController.m; sourceTree = "<group>"; };
+		2A4A567118A16CD800AFDF46 /* RomiboController2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RomiboController2.xcdatamodel; sourceTree = "<group>"; };
 		2A6E4C761853FB7100F5D03C /* RMBOPopoverMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMBOPopoverMenuViewController.h; path = ../RMBOPopoverMenuViewController.h; sourceTree = "<group>"; };
 		2A6E4C771853FB7100F5D03C /* RMBOPopoverMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMBOPopoverMenuViewController.m; path = ../RMBOPopoverMenuViewController.m; sourceTree = "<group>"; };
 		2A6E4C781853FB7100F5D03C /* RMBOPopoverMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RMBOPopoverMenuViewController.xib; path = ../RMBOPopoverMenuViewController.xib; sourceTree = "<group>"; };
 		2A782A6E1840800F0008F2AA /* RMBOCategoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBOCategoryCollectionViewCell.h; sourceTree = "<group>"; };
 		2A782A6F1840800F0008F2AA /* RMBOCategoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBOCategoryCollectionViewCell.m; sourceTree = "<group>"; };
-		2A782A75184081F50008F2AA /* RMBOCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBOCategory.h; sourceTree = "<group>"; };
-		2A782A76184081F50008F2AA /* RMBOCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBOCategory.m; sourceTree = "<group>"; };
-		2A782A791840823F0008F2AA /* RMBOAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBOAction.h; sourceTree = "<group>"; };
-		2A782A7A1840823F0008F2AA /* RMBOAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBOAction.m; sourceTree = "<group>"; };
 		2A782A7D184085D60008F2AA /* SeedCategories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SeedCategories.plist; sourceTree = "<group>"; };
 		2A782A7F1840866C0008F2AA /* RMBOSelectCategoryForEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMBOSelectCategoryForEditViewController.h; sourceTree = "<group>"; };
 		2A782A801840866C0008F2AA /* RMBOSelectCategoryForEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMBOSelectCategoryForEditViewController.m; sourceTree = "<group>"; };
@@ -220,6 +221,10 @@
 				2A6E4C781853FB7100F5D03C /* RMBOPopoverMenuViewController.xib */,
 				2A782A7D184085D60008F2AA /* SeedCategories.plist */,
 				2ACEF7EE1842AA3E00315F6F /* RomiboController.xcdatamodeld */,
+				2A06257A18A1727500FD9F2D /* RMBOCategory.h */,
+				2A06257B18A1727500FD9F2D /* RMBOCategory.m */,
+				2A06257718A1727500FD9F2D /* RMBOAction.h */,
+				2A06257818A1727500FD9F2D /* RMBOAction.m */,
 				2A782A7C184085BE0008F2AA /* Seed Data */,
 				2A782A78184082190008F2AA /* Models */,
 				2A31CF7818407540007A6DB2 /* UI */,
@@ -309,10 +314,6 @@
 		2A782A78184082190008F2AA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2A782A791840823F0008F2AA /* RMBOAction.h */,
-				2A782A7A1840823F0008F2AA /* RMBOAction.m */,
-				2A782A75184081F50008F2AA /* RMBOCategory.h */,
-				2A782A76184081F50008F2AA /* RMBOCategory.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -471,14 +472,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A782A701840800F0008F2AA /* RMBOCategoryCollectionViewCell.m in Sources */,
-				2A782A7B1840823F0008F2AA /* RMBOAction.m in Sources */,
+				2A06257918A1727500FD9F2D /* RMBOAction.m in Sources */,
 				2ACEF7FC1842F46000315F6F /* RMBOColorPickerViewController.m in Sources */,
 				2ACEF7F91842BD9800315F6F /* RMBOActionDataSource.m in Sources */,
 				2A782A841840894A0008F2AA /* RMBOEditNavigationViewController.m in Sources */,
 				2A0315D91851A3D800782D89 /* RMBOTabCell.m in Sources */,
 				2A6E4C791853FB7100F5D03C /* RMBOPopoverMenuViewController.m in Sources */,
+				2A06257C18A1727500FD9F2D /* RMBOCategory.m in Sources */,
 				2ACEF806184332F300315F6F /* RMBOActionCategoryCell.m in Sources */,
-				2A782A77184081F50008F2AA /* RMBOCategory.m in Sources */,
 				2A31CF7F184077EF007A6DB2 /* RMBORobotControlViewController.m in Sources */,
 				2ACEF7F01842AA3E00315F6F /* RomiboController.xcdatamodeld in Sources */,
 				2ACF112D1851AF8500237570 /* UIImage+RMBOTintImage.m in Sources */,
@@ -718,9 +719,10 @@
 		2ACEF7EE1842AA3E00315F6F /* RomiboController.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				2A4A567118A16CD800AFDF46 /* RomiboController2.xcdatamodel */,
 				2ACEF7EF1842AA3E00315F6F /* RomiboController.xcdatamodel */,
 			);
-			currentVersion = 2ACEF7EF1842AA3E00315F6F /* RomiboController.xcdatamodel */;
+			currentVersion = 2A4A567118A16CD800AFDF46 /* RomiboController2.xcdatamodel */;
 			path = RomiboController.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
