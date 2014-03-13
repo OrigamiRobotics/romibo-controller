@@ -35,6 +35,7 @@
 #define kRMBOTurnInPlaceClockwise @"kRMBOTurnInPlaceClockwise"
 #define kRMBOTurnInPlaceCounterClockwise @"kRMBOTurnInPlaceCounterClockwise"
 #define kRMBOStopRobotMovement @"kRMBOStopRobotMovement"
+#define kRMBOChangeMood @"kRMBOChangeMood"
 
 //Video
 #define kRMBOShowkitAPIKey @"05070922-5868-4283-b21c-dfcf88a602ce"
@@ -602,7 +603,7 @@
 {
     [self showNotConnectedDisplay];
     [UIView animateWithDuration:0.8 animations:^{
-        [_robotControls setAlpha:0.0];
+        [_robotControls setAlpha:1.0];
         [_robotControls setUserInteractionEnabled:YES];
     }];
     
@@ -727,6 +728,29 @@
 - (IBAction)robotHeadTiltSliderAction:(id)sender
 {
     [self tiltRobotHeadToAngle:_headTiltSlider.value];
+}
+
+- (IBAction)changeMood:(id)sender
+{
+    NSNumber *mood;
+    if ([sender isEqual:_happyButton]) {
+        mood = @0;
+    }
+    else if ([sender isEqual:_excitedButton]) {
+        mood = @1;
+    }
+    else if ([sender isEqual:_confusedButton]) {
+        mood = @2;
+    }
+    else {
+        mood = @3;
+    }
+    
+    if (_connectedToRobot) {
+        NSDictionary *params = @{@"command" : kRMBOChangeMood, @"mood" : mood};
+        NSData *paramsData = [NSKeyedArchiver archivedDataWithRootObject:params];
+        [self sendDataToRobot:paramsData];
+    }
 }
 
 

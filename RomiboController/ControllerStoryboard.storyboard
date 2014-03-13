@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="EMw-LI-4pv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="EMw-LI-4pv">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Robot Control View Controller-->
@@ -36,17 +36,6 @@
                                 <rect key="frame" x="0.0" y="118" width="768" height="906"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTY-JS-9b8">
-                                        <rect key="frame" x="20" y="276" width="200" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Turn on Video Streaming" backgroundImage="whiteBorderButton">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="showkitAction:" destination="EMw-LI-4pv" eventType="touchUpInside" id="Xoc-HI-6VX"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="riZ-UX-Of3" customClass="JSAnalogueStick">
                                         <rect key="frame" x="558" y="0.0" width="190" height="190"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -171,11 +160,6 @@
                                             <outlet property="delegate" destination="EMw-LI-4pv" id="xzG-Xk-bFC"/>
                                         </connections>
                                     </collectionView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oWL-k8-SRb">
-                                        <rect key="frame" x="20" y="-19" width="280" height="280"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83921568627450982" alpha="0.0" colorSpace="calibratedRGB"/>
-                                    </view>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1py-v7-xUN">
                                         <rect key="frame" x="366" y="307" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -206,6 +190,50 @@
                                             <action selector="endTurnRobotInPlaceClockwiseAction:" destination="EMw-LI-4pv" eventType="touchUpInside" id="yeA-8T-eT3"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIx-4g-QCN">
+                                        <rect key="frame" x="20" y="59" width="200" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Happy" backgroundImage="whiteBorderButton">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="AM2-Br-34x"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQc-Fa-TuU">
+                                        <rect key="frame" x="20" y="117" width="200" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Excited" backgroundImage="whiteBorderButton">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="DpE-nX-Z65"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xp5-tt-1Ri">
+                                        <rect key="frame" x="20" y="175" width="200" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Sad" backgroundImage="whiteBorderButton">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="5Eh-cz-D9J"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8G-an-IFx">
+                                        <rect key="frame" x="20" y="233" width="200" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Confused" backgroundImage="whiteBorderButton">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="OtA-ou-JWz"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="romiboLogoOffset" translatesAutoresizingMaskIntoConstraints="NO" id="xZ6-DS-DUI">
@@ -226,13 +254,15 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="cateogriesCollectionView" destination="kaK-dJ-Dst" id="IVu-9r-HbK"/>
+                        <outlet property="confusedButton" destination="U8G-an-IFx" id="BrC-TJ-ljC"/>
                         <outlet property="connectToRomiboButton" destination="eJS-4q-Sea" id="Axl-oO-dPf"/>
                         <outlet property="editorButton" destination="edF-Eu-diT" id="iU6-f8-iLZ"/>
+                        <outlet property="excitedButton" destination="cQc-Fa-TuU" id="3al-Ke-pQK"/>
+                        <outlet property="happyButton" destination="aIx-4g-QCN" id="KYG-6e-LyO"/>
                         <outlet property="joyStickView" destination="riZ-UX-Of3" id="5bh-Kc-HYL"/>
-                        <outlet property="manageShowKitButton" destination="HTY-JS-9b8" id="vb2-zu-1vq"/>
                         <outlet property="notConnectedLabel" destination="uNP-tP-g5X" id="JaQ-at-7Dv"/>
-                        <outlet property="remoteVideoView" destination="oWL-k8-SRb" id="Txj-pw-ZeY"/>
                         <outlet property="robotControls" destination="jg9-LF-TY7" id="Q7b-ht-6Kd"/>
+                        <outlet property="sadButton" destination="xp5-tt-1Ri" id="NrS-zU-HRL"/>
                         <outlet property="showkitActivityIndicator" destination="1py-v7-xUN" id="Ygs-BP-9tk"/>
                         <outlet property="tabCollectionView" destination="A8t-Vr-sEO" id="hBv-eJ-zGL"/>
                         <segue destination="w0a-VV-VDp" kind="modal" identifier="landscapeSegue" modalPresentationStyle="fullScreen" animates="NO" id="xE4-yv-a63"/>

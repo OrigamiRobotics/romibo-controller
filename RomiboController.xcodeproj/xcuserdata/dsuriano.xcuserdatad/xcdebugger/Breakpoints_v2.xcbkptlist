@@ -2,31 +2,4 @@
 <Bucket
    type = "1"
    version = "2.0">
-   <Breakpoints>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "Yes"
-            filePath = "RomiboController/RMBOCategoryEditorViewController.m"
-            timestampString = "409045019.710029"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "-loadActionsFromPersistentStore"
-            landmarkType = "5">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.Log">
-                  <ActionContent
-                     message = "DONE"
-                     conveyanceType = "0">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-         </BreakpointContent>
-      </BreakpointProxy>
-   </Breakpoints>
 </Bucket>

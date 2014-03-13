@@ -37,6 +37,10 @@
 @property (nonatomic, weak) IBOutlet UIButton *connectToRomiboButton;
 @property (nonatomic, weak) IBOutlet UIButton *manageShowKitButton;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *showkitActivityIndicator;
+@property (nonatomic, weak) IBOutlet UIButton *happyButton;
+@property (nonatomic, weak) IBOutlet UIButton *sadButton;
+@property (nonatomic, weak) IBOutlet UIButton *excitedButton;
+@property (nonatomic, weak) IBOutlet UIButton *confusedButton;
 
 - (void)customizeViews;
 - (void)loadEditorView;
@@ -56,6 +60,7 @@
 - (IBAction)beginTurnRobotInPlaceCounterClockwiseAction:(id)sender;
 - (IBAction)endTurnRobotInPlaceClockwiseAction:(id)sender;
 - (IBAction)endTurnRobotInPlaceCounterClockwiseAction:(id)sender;
+- (IBAction)changeMood:(id)sender;
 
 
 @end
