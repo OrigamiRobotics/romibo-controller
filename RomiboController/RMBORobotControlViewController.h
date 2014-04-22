@@ -41,6 +41,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *sadButton;
 @property (nonatomic, weak) IBOutlet UIButton *excitedButton;
 @property (nonatomic, weak) IBOutlet UIButton *confusedButton;
+@property (nonatomic, weak) IBOutlet UIButton *blinkButton;
 
 - (void)customizeViews;
 - (void)loadEditorView;
@@ -62,5 +63,6 @@
 - (IBAction)endTurnRobotInPlaceCounterClockwiseAction:(id)sender;
 - (IBAction)changeMood:(id)sender;
 
+- (void) reloadCategoriesAndActions;
 
 @end

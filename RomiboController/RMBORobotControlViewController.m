@@ -17,6 +17,8 @@
 #import "RMBOPopoverMenuViewController.h"
 #import "UIImage+RMBOTab.h"
 
+#include <tgmath.h>
+
 #define kRMBOMaxMutlipeerConnections 1
 #define kRMBOConnectionMenuOption 1
 #define kRMBOEditorMenuOption 0
@@ -25,7 +27,6 @@
 
 #define kRMBOControlsDisabledAlpha 0.0
 
-#define kRMBOMinimumMovementThreshold 0.125
 
 //Commands
 #define kRMBOSpeakPhrase @"kRMBOSpeakPhrase"
@@ -64,8 +65,8 @@
 
 @property (nonatomic, strong) UIAlertView *showkitLoginAlertView;
 @property (nonatomic, strong) NSTimer *turningTimer;
-@property (nonatomic, assign) float lastX;
-@property (nonatomic, assign) float lastY;
+@property (nonatomic, assign) CGFloat lastX;
+@property (nonatomic, assign) CGFloat lastY;
 
 @end
 
@@ -97,8 +98,8 @@
 //     selector:@selector(showkitStatusChanging:)
 //     name:SHKConnectionStatusChangedNotification
 //     object:nil];
-    _lastX = 0.0;
-    _lastY = 0.0;
+    _lastX = 0.0f;
+    _lastY = 0.0f;
 }
 
 - (void)awakeFromNib
@@ -110,6 +111,12 @@
                                                  name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
     
+}
+
+- (void) reloadCategoriesAndActions {
+    [self loadCategoriesFromPersistentStore];
+    [_cateogriesCollectionView reloadData];
+    [_tabCollectionView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -139,7 +146,10 @@
 
 - (void)customizeViews
 {
-    [self.view setBackgroundColor:[UIColor rmbo_blueStarBackground]];
+    UIColor * backgroundColor = [UIColor colorWithRed:0.0 green:0.5 blue:1.0 alpha:1.0];
+    [self.view setBackgroundColor:backgroundColor];
+
+//    [self.view setBackgroundColor:[UIColor rmbo_blueStarBackground]];
 }
 
 - (void)loadEditorView
@@ -450,22 +460,30 @@
     }
 }
 
+#define kRMBOMinimumMovementThreshold 0.125
+
 - (void)moveRobotWithX:(CGFloat)xValue andY:(CGFloat)yValue
 {
     if (_connectedToRobot) {
         
-        CGFloat xCheck = fabs(_lastX - xValue);
-        CGFloat yCheck = fabs(_lastY - yValue);
+        CGFloat xCheck = __tg_fabs(_lastX - xValue);
+        CGFloat yCheck = __tg_fabs(_lastY - yValue);
         
-        if (xCheck >= kRMBOMinimumMovementThreshold || yCheck >= kRMBOMinimumMovementThreshold) {
+        float x = (float)xValue;
+        float y = (float)yValue;
+
+        NSLog(@"moveRobotWithX: %f  Y: %f   xCheck: %f  yCheck: %f", xValue, yValue, xCheck, yCheck);
+
+// Tracy - Took out movement threshold. Seems to respond better. Not sure necessary. But we are sending lots of commands now.
+//        if (xCheck >= kRMBOMinimumMovementThreshold || yCheck >= kRMBOMinimumMovementThreshold) {
             NSLog(@"moving robot");
-            NSDictionary *params = @{@"command" : kRMBOMoveRobot, @"x" : [NSNumber numberWithFloat:xValue], @"y" : [NSNumber numberWithFloat:yValue]};
+            NSDictionary *params = @{@"command" : kRMBOMoveRobot, @"x" : [NSNumber numberWithFloat:x], @"y" : [NSNumber numberWithFloat:y]};
             NSData *paramsData = [NSKeyedArchiver archivedDataWithRootObject:params];
             
             [self sendDataToRobot:paramsData];
             _lastX = xValue;
             _lastY = yValue;
-        }
+//        }
     }
 }
 
@@ -730,20 +748,31 @@
     [self tiltRobotHeadToAngle:_headTiltSlider.value];
 }
 
+typedef NS_ENUM(NSInteger, RMBOEyeMood) {
+    RMBOEyeMoodHappy,
+    RMBOEyeMoodExcited,
+    RMBOEyeMoodConfused,
+    RMBOEyeMoodSad,
+    RMBOEyeBlink
+};
+
 - (IBAction)changeMood:(id)sender
 {
     NSNumber *mood;
     if ([sender isEqual:_happyButton]) {
-        mood = @0;
+        mood = [NSNumber numberWithInteger:RMBOEyeMoodHappy];
     }
     else if ([sender isEqual:_excitedButton]) {
-        mood = @1;
+        mood = [NSNumber numberWithInteger:RMBOEyeMoodExcited];
     }
     else if ([sender isEqual:_confusedButton]) {
-        mood = @2;
+        mood = [NSNumber numberWithInteger:RMBOEyeMoodConfused];
+    }
+    else if ([sender isEqual:_sadButton]) {
+        mood = [NSNumber numberWithInteger:RMBOEyeMoodSad];
     }
     else {
-        mood = @3;
+        mood = [NSNumber numberWithInteger:RMBOEyeBlink];
     }
     
     if (_connectedToRobot) {

@@ -8,7 +8,7 @@
 
 #import "RMBOCategory.h"
 #import "RMBOAction.h"
-
+#import "UIColor+RMBOColors.h"
 
 @implementation RMBOCategory
 
@@ -22,6 +22,8 @@
 {
     [super awakeFromInsert];
     self.name = @"New Palette";
+    self.pageColor = [UIColor rmbo_turquoiseColor];
+    self.displayOrder = [NSNumber numberWithInt:0];
     self.preview = UIImagePNGRepresentation([UIImage imageNamed:@"blank"]);
 }
 

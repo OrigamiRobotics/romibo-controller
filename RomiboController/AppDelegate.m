@@ -10,6 +10,8 @@
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import "RMBOAction.h"
 #import "RMBOCategory.h"
+#import "RMBORobotControlViewController.h"
+#import "UIColor+RMBOColors.h"
 
 @implementation AppDelegate
 
@@ -179,26 +181,33 @@
         
         NSArray *fetchedCategories = [_managedObjectContext executeFetchRequest:request error:&error];
         
-        
-        
         RMBOCategory *category = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:_managedObjectContext];
         
         [category setDisplayOrder:[NSNumber numberWithInteger:fetchedCategories.count + 1]];
         [category setName:jsonDict[@"name"]];
         
         for (NSDictionary *actionDict in jsonDict[@"actions"]) {
+            NSLog(@"actionDict: %@", actionDict);
+            NSLog(@"buttonTitle    : %@", actionDict[@"buttonTitle"] );
+            NSLog(@"speechPhrase   : %@", actionDict[@"speechPhrase"] );
+            NSLog(@"speechSpeedRate: %@", actionDict[@"speechSpeedRate"] );
+            NSLog(@"threeBasedIndex: %@", actionDict[@"threeBasedIndex"] );
+
             RMBOAction *action = [NSEntityDescription insertNewObjectForEntityForName:@"Action" inManagedObjectContext:_managedObjectContext];
             [action setSpeechPhrase:actionDict[@"speechPhrase"]];
             [action setThreeBasedIndex:actionDict[@"threeBasedIndex"]];
             [action setButtonTitle:actionDict[@"buttonTitle"]];
             [action setSpeachSpeedRate:actionDict[@"speechSpeedRate"]];
+
             [action setCategory:category];
             [category addActionsObject:action];
+            NSLog(@"        action: %@", action);
         }
         
         [_managedObjectContext save:nil];
         
-        
+        RMBORobotControlViewController *rootViewController = (RMBORobotControlViewController *)self.window.rootViewController;
+        [rootViewController reloadCategoriesAndActions];
     }
 }
 

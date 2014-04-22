@@ -139,7 +139,15 @@
     [action setCategory:_category];
     
     [action setThreeBasedIndex:[NSNumber numberWithInteger:_dataSource.fetchedButtons.count + 1]];
+
+    [action setSpeechPhrase:@""];
+    [action setButtonTitle:@"New Action"];
+    [action setSpeachSpeedRate:[NSNumber numberWithFloat:0.5f]];
     
+    [action setButtonColor:[UIColor rmbo_turquoiseColor]];
+    [action setButtonTitleColor:[UIColor blackColor]];
+    
+
     [_dataSource addActionToFetchedActions:action];
     
     [_buttonCollectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:_dataSource.fetchedButtons.count -1 inSection:0]]];

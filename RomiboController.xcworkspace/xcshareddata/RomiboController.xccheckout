@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>47664342-0D45-4037-80AA-7194B0AA6AFB</string>
+	<string>EC850AAB-112C-42CE-AFC6-B098DF1B9944</string>
 	<key>IDESourceControlProjectName</key>
 	<string>RomiboController</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1819C682-737B-463D-AA4B-BBB451D40403</key>
-		<string>ssh://github.com/romibo/romibo_controller.git</string>
+		<key>04A96BC7-2E54-412E-902F-719960C7B2C6</key>
+		<string>https://github.com/OrigamiRobotics/romibo-controller.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RomiboController.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1819C682-737B-463D-AA4B-BBB451D40403</key>
+		<key>04A96BC7-2E54-412E-902F-719960C7B2C6</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/romibo/romibo_controller.git</string>
+	<string>https://github.com/OrigamiRobotics/romibo-controller.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1819C682-737B-463D-AA4B-BBB451D40403</string>
+	<string>04A96BC7-2E54-412E-902F-719960C7B2C6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1819C682-737B-463D-AA4B-BBB451D40403</string>
+			<string>04A96BC7-2E54-412E-902F-719960C7B2C6</string>
 			<key>IDESourceControlWCCName</key>
-			<string>romibo_controller</string>
+			<string>romibo-controller</string>
 		</dict>
 	</array>
 </dict>

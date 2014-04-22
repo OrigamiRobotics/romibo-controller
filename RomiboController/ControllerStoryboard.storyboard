@@ -13,25 +13,17 @@
                         <viewControllerLayoutGuide type="top" id="yWG-w4-2fy"/>
                         <viewControllerLayoutGuide type="bottom" id="qFJ-W6-AzA"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qGG-aP-IT2">
+                    <view key="view" tag="1000" contentMode="scaleToFill" id="qGG-aP-IT2">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Not connected to Romibo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNP-tP-g5X">
-                                <rect key="frame" x="20" y="477" width="728" height="71"/>
+                                <rect key="frame" x="5" y="382" width="560" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJS-4q-Sea">
-                                <rect key="frame" x="284" y="600" width="200" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Connect to Romibo" backgroundImage="whiteBorderButton">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jg9-LF-TY7">
                                 <rect key="frame" x="0.0" y="118" width="768" height="906"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -44,7 +36,7 @@
                                             <outlet property="delegate" destination="EMw-LI-4pv" id="roe-IF-5OZ"/>
                                         </connections>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kaK-dJ-Dst">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kaK-dJ-Dst" userLabel="Categories Collection View">
                                         <rect key="frame" x="0.0" y="390" width="768" height="516"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,7 +54,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="768" height="505"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VFe-Cf-83Q">
+                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VFe-Cf-83Q" userLabel="Action Category Cell Collection View">
                                                             <rect key="frame" x="0.0" y="0.0" width="768" height="505"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <color key="backgroundColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
@@ -108,11 +100,11 @@
                                             </collectionViewCell>
                                         </cells>
                                         <connections>
-                                            <outlet property="dataSource" destination="EMw-LI-4pv" id="KvF-eC-wBQ"/>
-                                            <outlet property="delegate" destination="EMw-LI-4pv" id="VgZ-NW-lB2"/>
+                                            <outlet property="dataSource" destination="EMw-LI-4pv" id="9V7-9d-r3l"/>
+                                            <outlet property="delegate" destination="EMw-LI-4pv" id="XaC-H0-rIW"/>
                                         </connections>
                                     </collectionView>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A8t-Vr-sEO">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A8t-Vr-sEO" userLabel="Tab Collection View">
                                         <rect key="frame" x="0.0" y="334" width="768" height="61"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.83137254901960778" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -161,7 +153,7 @@
                                         </connections>
                                     </collectionView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1py-v7-xUN">
-                                        <rect key="frame" x="366" y="307" width="20" height="20"/>
+                                        <rect key="frame" x="365" y="165" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8k-wF-qlU">
@@ -191,47 +183,14 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIx-4g-QCN">
-                                        <rect key="frame" x="20" y="59" width="200" height="50"/>
+                                        <rect key="frame" x="20" y="58" width="200" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Happy" backgroundImage="whiteBorderButton">
+                                        <state key="normal" title="Blink" backgroundImage="whiteBorderButton">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="AM2-Br-34x"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQc-Fa-TuU">
-                                        <rect key="frame" x="20" y="117" width="200" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Excited" backgroundImage="whiteBorderButton">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="DpE-nX-Z65"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xp5-tt-1Ri">
-                                        <rect key="frame" x="20" y="175" width="200" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Sad" backgroundImage="whiteBorderButton">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="5Eh-cz-D9J"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8G-an-IFx">
-                                        <rect key="frame" x="20" y="233" width="200" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Confused" backgroundImage="whiteBorderButton">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="OtA-ou-JWz"/>
+                                            <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="tCJ-kR-DdU"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -253,16 +212,12 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="blinkButton" destination="aIx-4g-QCN" id="bay-NZ-eXn"/>
                         <outlet property="cateogriesCollectionView" destination="kaK-dJ-Dst" id="IVu-9r-HbK"/>
-                        <outlet property="confusedButton" destination="U8G-an-IFx" id="BrC-TJ-ljC"/>
-                        <outlet property="connectToRomiboButton" destination="eJS-4q-Sea" id="Axl-oO-dPf"/>
                         <outlet property="editorButton" destination="edF-Eu-diT" id="iU6-f8-iLZ"/>
-                        <outlet property="excitedButton" destination="cQc-Fa-TuU" id="3al-Ke-pQK"/>
-                        <outlet property="happyButton" destination="aIx-4g-QCN" id="KYG-6e-LyO"/>
                         <outlet property="joyStickView" destination="riZ-UX-Of3" id="5bh-Kc-HYL"/>
                         <outlet property="notConnectedLabel" destination="uNP-tP-g5X" id="JaQ-at-7Dv"/>
                         <outlet property="robotControls" destination="jg9-LF-TY7" id="Q7b-ht-6Kd"/>
-                        <outlet property="sadButton" destination="xp5-tt-1Ri" id="NrS-zU-HRL"/>
                         <outlet property="showkitActivityIndicator" destination="1py-v7-xUN" id="Ygs-BP-9tk"/>
                         <outlet property="tabCollectionView" destination="A8t-Vr-sEO" id="hBv-eJ-zGL"/>
                         <segue destination="w0a-VV-VDp" kind="modal" identifier="landscapeSegue" modalPresentationStyle="fullScreen" animates="NO" id="xE4-yv-a63"/>
