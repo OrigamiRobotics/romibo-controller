@@ -216,20 +216,23 @@
 		2A0F3D62183DDD350036C0CB /* RomiboController */ = {
 			isa = PBXGroup;
 			children = (
+				2A0F3D6B183DDD350036C0CB /* AppDelegate.h */,
+				2A0F3D6C183DDD350036C0CB /* AppDelegate.m */,
+				2A31CF7D184077EF007A6DB2 /* RMBORobotControlViewController.h */,
+				2A31CF7E184077EF007A6DB2 /* RMBORobotControlViewController.m */,
+				2A782A821840894A0008F2AA /* RMBOEditNavigationViewController.h */,
+				2A782A831840894A0008F2AA /* RMBOEditNavigationViewController.m */,
+				2A782A71184081A20008F2AA /* Views */,
+				2A31CF7818407540007A6DB2 /* UI */,
 				2A6E4C761853FB7100F5D03C /* RMBOPopoverMenuViewController.h */,
 				2A6E4C771853FB7100F5D03C /* RMBOPopoverMenuViewController.m */,
 				2A6E4C781853FB7100F5D03C /* RMBOPopoverMenuViewController.xib */,
 				2A782A7D184085D60008F2AA /* SeedCategories.plist */,
-				2ACEF7EE1842AA3E00315F6F /* RomiboController.xcdatamodeld */,
 				2A06257A18A1727500FD9F2D /* RMBOCategory.h */,
 				2A06257B18A1727500FD9F2D /* RMBOCategory.m */,
 				2A06257718A1727500FD9F2D /* RMBOAction.h */,
 				2A06257818A1727500FD9F2D /* RMBOAction.m */,
-				2A782A7C184085BE0008F2AA /* Seed Data */,
-				2A782A78184082190008F2AA /* Models */,
-				2A31CF7818407540007A6DB2 /* UI */,
-				2A0F3D6B183DDD350036C0CB /* AppDelegate.h */,
-				2A0F3D6C183DDD350036C0CB /* AppDelegate.m */,
+				2ACEF7EE1842AA3E00315F6F /* RomiboController.xcdatamodeld */,
 				2A782A7F1840866C0008F2AA /* RMBOSelectCategoryForEditViewController.h */,
 				2A782A801840866C0008F2AA /* RMBOSelectCategoryForEditViewController.m */,
 				2ACEF7F11842AED400315F6F /* RMBOCategoryEditorViewController.h */,
@@ -238,13 +241,6 @@
 				2ACEF7FB1842F46000315F6F /* RMBOColorPickerViewController.m */,
 				2ACEF7F71842BD9800315F6F /* RMBOActionDataSource.h */,
 				2ACEF7F81842BD9800315F6F /* RMBOActionDataSource.m */,
-				2A782A71184081A20008F2AA /* Views */,
-				2A0F3D71183DDD350036C0CB /* Images.xcassets */,
-				2A0F3D63183DDD350036C0CB /* Supporting Files */,
-				2A31CF7D184077EF007A6DB2 /* RMBORobotControlViewController.h */,
-				2A31CF7E184077EF007A6DB2 /* RMBORobotControlViewController.m */,
-				2A782A821840894A0008F2AA /* RMBOEditNavigationViewController.h */,
-				2A782A831840894A0008F2AA /* RMBOEditNavigationViewController.m */,
 				2ACEF7FF184314AA00315F6F /* UIColor+RMBOColors.h */,
 				2ACEF800184314AA00315F6F /* UIColor+RMBOColors.m */,
 				2ACEF8071843D3FB00315F6F /* LXReorderableCollectionViewFlowLayout.h */,
@@ -252,6 +248,8 @@
 				2ACF112B1851AF8500237570 /* UIImage+RMBOTintImage.h */,
 				2ACF112C1851AF8500237570 /* UIImage+RMBOTintImage.m */,
 				2AE1E34D185439D6004C430F /* Joystick */,
+				2A0F3D71183DDD350036C0CB /* Images.xcassets */,
+				2A0F3D63183DDD350036C0CB /* Supporting Files */,
 			);
 			path = RomiboController;
 			sourceTree = "<group>";
@@ -309,20 +307,6 @@
 				2A8351A9185E9B8C002AF83B /* UIImage+RMBOTab.m */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		2A782A78184082190008F2AA /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
-		2A782A7C184085BE0008F2AA /* Seed Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Seed Data";
 			sourceTree = "<group>";
 		};
 		2AE1E34D185439D6004C430F /* Joystick */ = {
@@ -650,7 +634,7 @@
 				INFOPLIST_FILE = "RomiboController/RomiboController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E1E713BA-9B6D-4B09-8F08-ED02AFFA9F8D";
+				PROVISIONING_PROFILE = "3CEB4975-73C7-40F8-9D67-3D8EF586E9D7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

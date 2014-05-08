@@ -170,11 +170,13 @@
         NSData *data = [_jsonString dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
         
-        
+//        NSDictionary * paletteDict = jsonDict[@"palette"];
+        NSDictionary * paletteDict = jsonDict;
+        NSDictionary * actionsDict = paletteDict[@"actions"];
+       
         NSEntityDescription *entity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:_managedObjectContext];
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         [request setEntity:entity];
-        
         
         NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"displayOrder" ascending:YES];
         [request setSortDescriptors:@[descriptor]];
@@ -184,9 +186,9 @@
         RMBOCategory *category = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:_managedObjectContext];
         
         [category setDisplayOrder:[NSNumber numberWithInteger:fetchedCategories.count + 1]];
-        [category setName:jsonDict[@"name"]];
+        [category setName:paletteDict[@"name"]];
         
-        for (NSDictionary *actionDict in jsonDict[@"actions"]) {
+        for (NSDictionary *actionDict in actionsDict) {
             NSLog(@"actionDict: %@", actionDict);
             NSLog(@"buttonTitle    : %@", actionDict[@"buttonTitle"] );
             NSLog(@"speechPhrase   : %@", actionDict[@"speechPhrase"] );

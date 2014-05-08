@@ -37,10 +37,10 @@
 @property (nonatomic, weak) IBOutlet UIButton *connectToRomiboButton;
 @property (nonatomic, weak) IBOutlet UIButton *manageShowKitButton;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *showkitActivityIndicator;
-@property (nonatomic, weak) IBOutlet UIButton *happyButton;
-@property (nonatomic, weak) IBOutlet UIButton *sadButton;
+@property (nonatomic, weak) IBOutlet UIButton *curiousButton;
 @property (nonatomic, weak) IBOutlet UIButton *excitedButton;
-@property (nonatomic, weak) IBOutlet UIButton *confusedButton;
+@property (nonatomic, weak) IBOutlet UIButton *indifferentButton;
+@property (nonatomic, weak) IBOutlet UIButton *twitterpatedButton;
 @property (nonatomic, weak) IBOutlet UIButton *blinkButton;
 
 - (void)customizeViews;

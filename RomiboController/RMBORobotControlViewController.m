@@ -749,32 +749,36 @@
 }
 
 typedef NS_ENUM(NSInteger, RMBOEyeMood) {
-    RMBOEyeMoodHappy,
-    RMBOEyeMoodExcited,
-    RMBOEyeMoodConfused,
-    RMBOEyeMoodSad,
+    RMBOEyeMood_Normal,
+    RMBOEyeMood_Curious,
+    RMBOEyeMood_Excited,
+    RMBOEyeMood_Indifferent,
+    RMBOEyeMood_Twitterpated,
     RMBOEyeBlink
 };
 
 - (IBAction)changeMood:(id)sender
 {
     NSNumber *mood;
-    if ([sender isEqual:_happyButton]) {
-        mood = [NSNumber numberWithInteger:RMBOEyeMoodHappy];
+    if ([sender isEqual:self.curiousButton]) {
+        mood = [NSNumber numberWithInteger:RMBOEyeMood_Curious];
     }
-    else if ([sender isEqual:_excitedButton]) {
-        mood = [NSNumber numberWithInteger:RMBOEyeMoodExcited];
+    else if ([sender isEqual:self.excitedButton]) {
+        mood = [NSNumber numberWithInteger:RMBOEyeMood_Excited];
     }
-    else if ([sender isEqual:_confusedButton]) {
-        mood = [NSNumber numberWithInteger:RMBOEyeMoodConfused];
+    else if ([sender isEqual:self.indifferentButton]) {
+        mood = [NSNumber numberWithInteger:RMBOEyeMood_Indifferent];
     }
-    else if ([sender isEqual:_sadButton]) {
-        mood = [NSNumber numberWithInteger:RMBOEyeMoodSad];
+    else if ([sender isEqual:self.twitterpatedButton]) {
+        mood = [NSNumber numberWithInteger:RMBOEyeMood_Twitterpated];
     }
-    else {
+    else if ([sender isEqual:self.blinkButton]) {
         mood = [NSNumber numberWithInteger:RMBOEyeBlink];
     }
-    
+    else {
+        return;
+    }
+
     if (_connectedToRobot) {
         NSDictionary *params = @{@"command" : kRMBOChangeMood, @"mood" : mood};
         NSData *paramsData = [NSKeyedArchiver archivedDataWithRootObject:params];
