@@ -14,47 +14,100 @@
                         <viewControllerLayoutGuide type="bottom" id="qFJ-W6-AzA"/>
                     </layoutGuides>
                     <view key="view" tag="1000" contentMode="scaleToFill" id="qGG-aP-IT2">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="romiboLogoOffset" translatesAutoresizingMaskIntoConstraints="NO" id="xZ6-DS-DUI">
-                                <rect key="frame" x="20" y="24" width="195" height="72"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Not connected to Romibo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNP-tP-g5X">
+                                <rect key="frame" x="5" y="394" width="560" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not connected to Romibo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNP-tP-g5X">
-                                <rect key="frame" x="231" y="49" width="259" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edF-Eu-diT" userLabel="Button - gear">
-                                <rect key="frame" x="951" y="32" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="settings"/>
-                                <connections>
-                                    <action selector="showMenuPopover:" destination="EMw-LI-4pv" eventType="touchUpInside" id="bY6-rz-eKU"/>
-                                </connections>
-                            </button>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jg9-LF-TY7">
-                                <rect key="frame" x="0.0" y="106" width="1024" height="663"/>
+                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jg9-LF-TY7">
+                                <rect key="frame" x="0.0" y="118" width="768" height="906"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="riZ-UX-Of3" customClass="JSAnalogueStick">
-                                        <rect key="frame" x="810" y="20" width="179" height="179"/>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="riZ-UX-Of3" customClass="JSAnalogueStick">
+                                        <rect key="frame" x="558" y="0.0" width="190" height="190"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="delegate" destination="EMw-LI-4pv" id="roe-IF-5OZ"/>
                                         </connections>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A8t-Vr-sEO" userLabel="Tab Collection View">
-                                        <rect key="frame" x="0.0" y="340" width="1024" height="50"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kaK-dJ-Dst" userLabel="Categories Collection View">
+                                        <rect key="frame" x="0.0" y="390" width="768" height="516"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="gNB-C4-Uuu">
+                                            <size key="itemSize" width="768" height="505"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryView" id="Lqj-14-zLF" customClass="RMBOActionCategoryCell">
+                                                <rect key="frame" x="0.0" y="6" width="768" height="505"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                    <rect key="frame" x="0.0" y="0.0" width="768" height="505"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VFe-Cf-83Q" userLabel="Action Category Cell Collection View">
+                                                            <rect key="frame" x="0.0" y="0.0" width="768" height="505"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <color key="backgroundColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="6o6-I3-fOf">
+                                                                <size key="itemSize" width="172" height="60"/>
+                                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                                <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                                            </collectionViewFlowLayout>
+                                                            <cells>
+                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="buttonCell" id="SOG-BT-042" customClass="RMBOButtonCell">
+                                                                    <rect key="frame" x="20" y="0.0" width="172" height="60"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="172" height="60"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvP-ti-6QC">
+                                                                                <rect key="frame" x="5" y="8" width="162" height="44"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <state key="normal" title="Button" backgroundImage="smActionButton">
+                                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                </state>
+                                                                                <connections>
+                                                                                    <action selector="buttonWasPressed:" destination="SOG-BT-042" eventType="touchUpInside" id="2sP-TG-3AG"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    </view>
+                                                                    <connections>
+                                                                        <outlet property="cellButton" destination="cvP-ti-6QC" id="ThN-Fb-dMo"/>
+                                                                    </connections>
+                                                                </collectionViewCell>
+                                                            </cells>
+                                                        </collectionView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <connections>
+                                                    <outlet property="collectionView" destination="VFe-Cf-83Q" id="d9w-lH-VSh"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="EMw-LI-4pv" id="9V7-9d-r3l"/>
+                                            <outlet property="delegate" destination="EMw-LI-4pv" id="XaC-H0-rIW"/>
+                                        </connections>
+                                    </collectionView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A8t-Vr-sEO" userLabel="Tab Collection View">
+                                        <rect key="frame" x="0.0" y="334" width="768" height="61"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.83137254901960778" alpha="0.0" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="82p-ZN-sq3"/>
-                                        </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="4" id="w6B-9y-cfW">
                                             <size key="itemSize" width="250" height="50"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -63,13 +116,13 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="tabView" id="HD6-C1-fTj" customClass="RMBOTabCell">
-                                                <rect key="frame" x="0.0" y="6" width="250" height="50"/>
+                                                <rect key="frame" x="0.0" y="11" width="250" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WMu-vp-gtU">
+                                                        <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WMu-vp-gtU">
                                                             <rect key="frame" x="0.0" y="0.0" width="250" height="57"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
@@ -85,12 +138,8 @@
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstItem="B34-EP-Qzq" firstAttribute="leading" secondItem="HD6-C1-fTj" secondAttribute="leading" constant="20" id="L7e-me-i8V"/>
-                                                    <constraint firstAttribute="bottom" secondItem="WMu-vp-gtU" secondAttribute="bottom" constant="-7" id="MTo-cW-6U9"/>
-                                                    <constraint firstItem="WMu-vp-gtU" firstAttribute="top" secondItem="HD6-C1-fTj" secondAttribute="top" id="TzI-9c-5sP"/>
                                                     <constraint firstItem="B34-EP-Qzq" firstAttribute="top" secondItem="HD6-C1-fTj" secondAttribute="top" constant="14" id="UFn-Gf-7iH"/>
-                                                    <constraint firstItem="WMu-vp-gtU" firstAttribute="leading" secondItem="HD6-C1-fTj" secondAttribute="leading" id="ccc-JC-o2x"/>
                                                     <constraint firstAttribute="trailing" secondItem="B34-EP-Qzq" secondAttribute="trailing" constant="20" id="tSU-fY-0C2"/>
-                                                    <constraint firstItem="WMu-vp-gtU" firstAttribute="centerX" secondItem="B34-EP-Qzq" secondAttribute="centerX" id="uR7-nT-Xp8"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="categoryName" destination="B34-EP-Qzq" id="bf7-V8-ytS"/>
@@ -103,99 +152,13 @@
                                             <outlet property="delegate" destination="EMw-LI-4pv" id="xzG-Xk-bFC"/>
                                         </connections>
                                     </collectionView>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kaK-dJ-Dst" userLabel="Categories Collection View">
-                                        <rect key="frame" x="0.0" y="390" width="768" height="530"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <color key="backgroundColor" red="0.83529411764705885" green="0.83529411764705885" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="530" id="Aro-TM-K85"/>
-                                            <constraint firstAttribute="width" constant="768" id="y7K-cb-f2B"/>
-                                        </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="gNB-C4-Uuu">
-                                            <size key="itemSize" width="768" height="530"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" reuseIdentifier="categoryView" id="Lqj-14-zLF" customClass="RMBOActionCategoryCell">
-                                                <rect key="frame" x="0.0" y="0.0" width="768" height="530"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="0.0" y="0.0" width="768" height="530"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VFe-Cf-83Q" userLabel="Action Category Cell Collection View">
-                                                            <rect key="frame" x="0.0" y="0.0" width="768" height="530"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                            <color key="backgroundColor" red="0.82745098039215681" green="0.82745098039215681" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="6o6-I3-fOf">
-                                                                <size key="itemSize" width="172" height="60"/>
-                                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
-                                                            </collectionViewFlowLayout>
-                                                            <cells>
-                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="buttonCell" id="SOG-BT-042" customClass="RMBOButtonCell">
-                                                                    <rect key="frame" x="10" y="0.0" width="172" height="60"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="172" height="60"/>
-                                                                        <autoresizingMask key="autoresizingMask"/>
-                                                                        <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvP-ti-6QC">
-                                                                                <rect key="frame" x="5" y="8" width="162" height="44"/>
-                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                <state key="normal" title="Button" backgroundImage="smActionButton">
-                                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                </state>
-                                                                                <connections>
-                                                                                    <action selector="buttonWasPressed:" destination="SOG-BT-042" eventType="touchUpInside" id="2sP-TG-3AG"/>
-                                                                                </connections>
-                                                                            </button>
-                                                                        </subviews>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                    </view>
-                                                                    <constraints>
-                                                                        <constraint firstItem="cvP-ti-6QC" firstAttribute="top" secondItem="SOG-BT-042" secondAttribute="top" constant="8" id="DAh-ni-Hgv"/>
-                                                                        <constraint firstItem="cvP-ti-6QC" firstAttribute="centerY" secondItem="SOG-BT-042" secondAttribute="centerY" id="HRb-sX-EIY"/>
-                                                                        <constraint firstItem="cvP-ti-6QC" firstAttribute="centerX" secondItem="SOG-BT-042" secondAttribute="centerX" id="S9D-NP-FNI"/>
-                                                                    </constraints>
-                                                                    <connections>
-                                                                        <outlet property="cellButton" destination="cvP-ti-6QC" id="ThN-Fb-dMo"/>
-                                                                    </connections>
-                                                                </collectionViewCell>
-                                                            </cells>
-                                                        </collectionView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </view>
-                                                <constraints>
-                                                    <constraint firstItem="VFe-Cf-83Q" firstAttribute="top" secondItem="Lqj-14-zLF" secondAttribute="top" id="DoS-Ec-4MV"/>
-                                                    <constraint firstAttribute="bottom" secondItem="VFe-Cf-83Q" secondAttribute="bottom" id="Om2-nK-Gaf"/>
-                                                    <constraint firstItem="VFe-Cf-83Q" firstAttribute="leading" secondItem="Lqj-14-zLF" secondAttribute="leading" id="bfb-Fa-dRt"/>
-                                                    <constraint firstAttribute="trailing" secondItem="VFe-Cf-83Q" secondAttribute="trailing" id="v4c-RQ-fHk"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="collectionView" destination="VFe-Cf-83Q" id="d9w-lH-VSh"/>
-                                                </connections>
-                                            </collectionViewCell>
-                                        </cells>
-                                        <connections>
-                                            <outlet property="dataSource" destination="EMw-LI-4pv" id="9V7-9d-r3l"/>
-                                            <outlet property="delegate" destination="EMw-LI-4pv" id="XaC-H0-rIW"/>
-                                        </connections>
-                                    </collectionView>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1py-v7-xUN">
-                                        <rect key="frame" x="365" y="177" width="20" height="20"/>
+                                        <rect key="frame" x="365" y="165" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8k-wF-qlU" userLabel="Button - counter clockwise">
-                                        <rect key="frame" x="810" y="234" width="75" height="64"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8k-wF-qlU">
+                                        <rect key="frame" x="558" y="219" width="75" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="75" id="KW6-23-XMH"/>
-                                        </constraints>
                                         <state key="normal" image="counter">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -206,8 +169,8 @@
                                             <action selector="endTurnRobotInPlaceCounterClockwiseAction:" destination="EMw-LI-4pv" eventType="touchUpInside" id="sMc-5L-QO7"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1f-iV-Piq" userLabel="Button- clockwise">
-                                        <rect key="frame" x="925" y="234" width="64" height="64"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1f-iV-Piq">
+                                        <rect key="frame" x="673" y="219" width="75" height="64"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="clock">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -219,8 +182,8 @@
                                             <action selector="endTurnRobotInPlaceClockwiseAction:" destination="EMw-LI-4pv" eventType="touchUpInside" id="yeA-8T-eT3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIx-4g-QCN">
-                                        <rect key="frame" x="20" y="255" width="200" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIx-4g-QCN">
+                                        <rect key="frame" x="20" y="237" width="200" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Blink" backgroundImage="whiteBorderButton">
@@ -230,107 +193,33 @@
                                             <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="tCJ-kR-DdU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Htg-JU-jcF">
-                                        <rect key="frame" x="20" y="200" width="200" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Twitterpated" backgroundImage="whiteBorderButton">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="D9E-iN-UDE"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdr-fe-iki">
-                                        <rect key="frame" x="20" y="145" width="200" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Indifferent" backgroundImage="whiteBorderButton">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="hne-Ih-ISB"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvy-hA-Vn7">
-                                        <rect key="frame" x="20" y="90" width="200" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Excited" backgroundImage="whiteBorderButton">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="FBD-xw-g0K"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJD-VR-05P">
-                                        <rect key="frame" x="20" y="35" width="200" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Curious" backgroundImage="whiteBorderButton">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="fds-1D-ZFc"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="A8t-Vr-sEO" firstAttribute="top" secondItem="N8k-wF-qlU" secondAttribute="bottom" constant="42" id="3Vb-0V-bXJ"/>
-                                    <constraint firstItem="kaK-dJ-Dst" firstAttribute="top" secondItem="A8t-Vr-sEO" secondAttribute="bottom" id="8Bl-yE-V6T"/>
-                                    <constraint firstItem="Htg-JU-jcF" firstAttribute="leading" secondItem="aIx-4g-QCN" secondAttribute="leading" id="8uE-wf-bcs"/>
-                                    <constraint firstItem="qvy-hA-Vn7" firstAttribute="top" secondItem="sJD-VR-05P" secondAttribute="bottom" constant="5" id="9Um-nb-UDu"/>
-                                    <constraint firstItem="riZ-UX-Of3" firstAttribute="top" secondItem="jg9-LF-TY7" secondAttribute="top" constant="20" symbolic="YES" id="D7h-wL-0aN"/>
-                                    <constraint firstItem="N8k-wF-qlU" firstAttribute="top" secondItem="riZ-UX-Of3" secondAttribute="bottom" constant="35" id="Ei1-HI-FHd"/>
-                                    <constraint firstItem="qvy-hA-Vn7" firstAttribute="leading" secondItem="bdr-fe-iki" secondAttribute="leading" id="Ew6-f2-QHQ"/>
-                                    <constraint firstItem="N8k-wF-qlU" firstAttribute="leading" secondItem="riZ-UX-Of3" secondAttribute="leading" id="Kai-hI-TGK"/>
-                                    <constraint firstItem="sJD-VR-05P" firstAttribute="leading" secondItem="jg9-LF-TY7" secondAttribute="leading" constant="20" symbolic="YES" id="Q7A-op-2mq"/>
-                                    <constraint firstItem="c1f-iV-Piq" firstAttribute="trailing" secondItem="riZ-UX-Of3" secondAttribute="trailing" id="TWH-Zl-XVj"/>
-                                    <constraint firstItem="A8t-Vr-sEO" firstAttribute="leading" secondItem="jg9-LF-TY7" secondAttribute="leading" id="WBR-iP-y6O"/>
-                                    <constraint firstAttribute="trailing" secondItem="A8t-Vr-sEO" secondAttribute="trailing" id="Xqm-yb-vb5"/>
-                                    <constraint firstItem="A8t-Vr-sEO" firstAttribute="top" secondItem="aIx-4g-QCN" secondAttribute="bottom" constant="35" id="Zaq-qV-Yr7"/>
-                                    <constraint firstItem="Htg-JU-jcF" firstAttribute="top" secondItem="bdr-fe-iki" secondAttribute="bottom" constant="5" id="c0e-0k-Cla"/>
-                                    <constraint firstItem="c1f-iV-Piq" firstAttribute="leading" secondItem="N8k-wF-qlU" secondAttribute="trailing" constant="40" id="dV7-eP-eZI"/>
-                                    <constraint firstItem="aIx-4g-QCN" firstAttribute="top" secondItem="Htg-JU-jcF" secondAttribute="bottom" constant="5" id="frj-0c-tiX"/>
-                                    <constraint firstItem="qvy-hA-Vn7" firstAttribute="leading" secondItem="sJD-VR-05P" secondAttribute="leading" id="hXG-H2-Oed"/>
-                                    <constraint firstItem="N8k-wF-qlU" firstAttribute="top" secondItem="c1f-iV-Piq" secondAttribute="top" id="jN3-ij-gc2"/>
-                                    <constraint firstItem="bdr-fe-iki" firstAttribute="top" secondItem="qvy-hA-Vn7" secondAttribute="bottom" constant="5" id="jx0-00-FWG"/>
-                                    <constraint firstItem="kaK-dJ-Dst" firstAttribute="leading" secondItem="A8t-Vr-sEO" secondAttribute="leading" id="nYf-vg-SXj"/>
-                                    <constraint firstItem="sJD-VR-05P" firstAttribute="top" secondItem="jg9-LF-TY7" secondAttribute="top" constant="35" id="u3K-ex-cxv"/>
-                                    <constraint firstItem="bdr-fe-iki" firstAttribute="leading" secondItem="Htg-JU-jcF" secondAttribute="leading" id="uBt-XZ-u4m"/>
-                                    <constraint firstAttribute="trailing" secondItem="riZ-UX-Of3" secondAttribute="trailing" constant="35" id="xbb-sv-oMr"/>
-                                </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="romiboLogoOffset" translatesAutoresizingMaskIntoConstraints="NO" id="xZ6-DS-DUI">
+                                <rect key="frame" x="20" y="20" width="195" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="center" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edF-Eu-diT">
+                                <rect key="frame" x="704" y="34" width="44" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="settings"/>
+                                <connections>
+                                    <action selector="showMenuPopover:" destination="EMw-LI-4pv" eventType="touchUpInside" id="bY6-rz-eKU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="edF-Eu-diT" firstAttribute="top" secondItem="yWG-w4-2fy" secondAttribute="bottom" constant="12" id="5JO-oZ-uw4"/>
-                            <constraint firstItem="jg9-LF-TY7" firstAttribute="leading" secondItem="qGG-aP-IT2" secondAttribute="leading" id="87T-Y8-b4s"/>
-                            <constraint firstItem="jg9-LF-TY7" firstAttribute="top" secondItem="uNP-tP-g5X" secondAttribute="bottom" constant="28" id="B0d-BF-R6z"/>
-                            <constraint firstAttribute="bottom" secondItem="jg9-LF-TY7" secondAttribute="bottom" constant="-1" id="D8e-xJ-NT9"/>
-                            <constraint firstAttribute="trailing" secondItem="jg9-LF-TY7" secondAttribute="trailing" id="DpA-no-P8a"/>
-                            <constraint firstItem="xZ6-DS-DUI" firstAttribute="leading" secondItem="qGG-aP-IT2" secondAttribute="leading" constant="20" symbolic="YES" id="F6a-S9-Rv5"/>
-                            <constraint firstItem="jg9-LF-TY7" firstAttribute="top" secondItem="xZ6-DS-DUI" secondAttribute="bottom" constant="10" id="ieD-Yn-A0h"/>
-                            <constraint firstItem="xZ6-DS-DUI" firstAttribute="top" secondItem="yWG-w4-2fy" secondAttribute="bottom" constant="4" id="l9c-IJ-2dt"/>
-                            <constraint firstAttribute="trailing" secondItem="edF-Eu-diT" secondAttribute="trailing" constant="41" id="oD0-pl-Lw1"/>
-                            <constraint firstItem="uNP-tP-g5X" firstAttribute="leading" secondItem="qGG-aP-IT2" secondAttribute="leading" constant="231" id="v7I-mZ-1UM"/>
-                        </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="blinkButton" destination="aIx-4g-QCN" id="bay-NZ-eXn"/>
                         <outlet property="cateogriesCollectionView" destination="kaK-dJ-Dst" id="IVu-9r-HbK"/>
-                        <outlet property="curiousButton" destination="sJD-VR-05P" id="lFK-yw-wUP"/>
                         <outlet property="editorButton" destination="edF-Eu-diT" id="iU6-f8-iLZ"/>
-                        <outlet property="excitedButton" destination="qvy-hA-Vn7" id="s3m-SH-qKo"/>
-                        <outlet property="indifferentButton" destination="bdr-fe-iki" id="4fA-V2-PnP"/>
                         <outlet property="joyStickView" destination="riZ-UX-Of3" id="5bh-Kc-HYL"/>
                         <outlet property="notConnectedLabel" destination="uNP-tP-g5X" id="JaQ-at-7Dv"/>
                         <outlet property="robotControls" destination="jg9-LF-TY7" id="Q7b-ht-6Kd"/>
                         <outlet property="showkitActivityIndicator" destination="1py-v7-xUN" id="Ygs-BP-9tk"/>
                         <outlet property="tabCollectionView" destination="A8t-Vr-sEO" id="hBv-eJ-zGL"/>
-                        <outlet property="twitterpatedButton" destination="Htg-JU-jcF" id="FwN-QY-4t0"/>
                         <segue destination="w0a-VV-VDp" kind="modal" identifier="landscapeSegue" modalPresentationStyle="fullScreen" animates="NO" id="xE4-yv-a63"/>
                     </connections>
                 </viewController>
