@@ -43,10 +43,10 @@
 	
 	_handleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"analogue_handle"]];
 	CGRect handleImageFrame = [_handleImageView frame];
-	handleImageFrame.size = CGSizeMake([_backgroundImageView bounds].size.width / 1.5,
-									   [_backgroundImageView bounds].size.height / 1.5);
-	handleImageFrame.origin = CGPointMake(([self bounds].size.width - handleImageFrame.size.width) / 2,
-										  ([self bounds].size.height - handleImageFrame.size.height) / 2);
+	handleImageFrame.size = CGSizeMake( (float)([_backgroundImageView bounds].size.width / 1.5),
+									    (float)([_backgroundImageView bounds].size.height / 1.5));
+	handleImageFrame.origin = CGPointMake((float)(([self bounds].size.width - handleImageFrame.size.width) / 2),
+										  (float)(([self bounds].size.height - handleImageFrame.size.height) / 2));
 	[_handleImageView setFrame:handleImageFrame];
 	[self addSubview:_handleImageView];
 	

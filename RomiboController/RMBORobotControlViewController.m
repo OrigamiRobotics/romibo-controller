@@ -43,11 +43,11 @@
 #define kRMBOShowkitAccountNumber @"584"
 
 //Pallets
-#define kRMBOPalletTabDisabled 0.4
+#define kRMBOPalletTabDisabled 0.4f
 
 @interface RMBORobotControlViewController () {
     BOOL isShowingLandscapeView;
-    NSInteger currentPage;
+    NSUInteger currentPage;
     BOOL isTurningClockwise;
     BOOL isTurningCounterclockwise;
 }
@@ -87,7 +87,7 @@
     [self setupMultipeerConnectivity];
     
     if (!_mainContext) {
-        AppDelegate *del = [[UIApplication sharedApplication] delegate];
+        AppDelegate *del = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         _mainContext = [del managedObjectContext];
         currentPage = 0;
     }
@@ -134,7 +134,7 @@
         }
         
     }
-    CGAffineTransform trans = CGAffineTransformMakeRotation(M_PI * -0.5);
+    CGAffineTransform trans = CGAffineTransformMakeRotation((float)(M_PI * -0.5f));
     _headTiltSlider.transform = trans;
 }
 
@@ -245,7 +245,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     if ([scrollView isEqual:_cateogriesCollectionView]) {
-        NSInteger newPage = scrollView.contentOffset.x / scrollView.frame.size.width;
+        NSUInteger newPage = (int)(scrollView.contentOffset.x / scrollView.frame.size.width);
         if (newPage != currentPage) {
             if (_fetchedCategories.count > newPage) {
                 RMBOTabCell *oldCell = (RMBOTabCell *)[_tabCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:currentPage inSection:0]];
@@ -271,12 +271,12 @@
 {
     if (!decelerate) {
         if ([scrollView isEqual:_cateogriesCollectionView]) {
-            NSInteger newPage = scrollView.contentOffset.x / scrollView.frame.size.width;
+            NSUInteger newPage = (int)(scrollView.contentOffset.x / scrollView.frame.size.width);
             if (newPage != currentPage) {
                 if (_fetchedCategories.count > newPage) {
                     RMBOTabCell *oldCell = (RMBOTabCell *)[_tabCollectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:currentPage inSection:0]];
                     [[oldCell categoryName] setAlpha:0.5];
-                    [[oldCell tabImage] setAlpha:kRMBOPalletTabDisabled];
+                    [[oldCell tabImage] setAlpha:(float)kRMBOPalletTabDisabled];
                     [[oldCell categoryName] setFont:[UIFont fontWithName:@"HelveticaNeue" size:17]];
                     [_tabCollectionView deselectItemAtIndexPath:[NSIndexPath indexPathForItem:currentPage inSection:0] animated:YES];
                     
@@ -500,7 +500,7 @@
 - (void)tiltRobotHeadToAngle:(CGFloat)angle
 {
     if (_connectedToRobot) {
-        NSDictionary *params = @{@"command" : kRMBOHeadTilt, @"angle" : [NSNumber numberWithFloat:angle]};
+        NSDictionary *params = @{@"command" : kRMBOHeadTilt, @"angle" : [NSNumber numberWithFloat:(float)angle]};
         NSData *paramsData = [NSKeyedArchiver archivedDataWithRootObject:params];
         
         [self sendDataToRobot:paramsData];

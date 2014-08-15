@@ -49,6 +49,7 @@
 		2ACF112D1851AF8500237570 /* UIImage+RMBOTintImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACF112C1851AF8500237570 /* UIImage+RMBOTintImage.m */; };
 		2AE1E33D185402A9004C430F /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE1E33C185402A9004C430F /* MultipeerConnectivity.framework */; };
 		2AE1E350185439EE004C430F /* JSAnalogueStick.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE1E34F185439EE004C430F /* JSAnalogueStick.m */; };
+		D7DDFD1F199E68030088B26F /* Nordic_Bluetooth_LE in Resources */ = {isa = PBXBuildFile; fileRef = D7DDFD1E199E68030088B26F /* Nordic_Bluetooth_LE */; };
 		F8F7264B5EC04F7F95D110D2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F341C53CDB814AF9B6F2D294 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +135,7 @@
 		2AE1E34E185439EE004C430F /* JSAnalogueStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAnalogueStick.h; sourceTree = "<group>"; };
 		2AE1E34F185439EE004C430F /* JSAnalogueStick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAnalogueStick.m; sourceTree = "<group>"; };
 		786440EAE7EF4AFCB330F973 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D7DDFD1E199E68030088B26F /* Nordic_Bluetooth_LE */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Nordic_Bluetooth_LE; sourceTree = "<group>"; };
 		F341C53CDB814AF9B6F2D294 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libPods.a; path = "../../../../../../../../Desktop/romibo-controller-master/Pods/libPods.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -220,6 +222,7 @@
 				2A0F3D6C183DDD350036C0CB /* AppDelegate.m */,
 				2A31CF7D184077EF007A6DB2 /* RMBORobotControlViewController.h */,
 				2A31CF7E184077EF007A6DB2 /* RMBORobotControlViewController.m */,
+				D7DDFD1E199E68030088B26F /* Nordic_Bluetooth_LE */,
 				2A782A821840894A0008F2AA /* RMBOEditNavigationViewController.h */,
 				2A782A831840894A0008F2AA /* RMBOEditNavigationViewController.m */,
 				2A782A71184081A20008F2AA /* Views */,
@@ -400,6 +403,7 @@
 			files = (
 				2A31CF7A184075E2007A6DB2 /* ControllerStoryboard.storyboard in Resources */,
 				2A0F3D67183DDD350036C0CB /* InfoPlist.strings in Resources */,
+				D7DDFD1F199E68030088B26F /* Nordic_Bluetooth_LE in Resources */,
 				2A782A7E184085D60008F2AA /* SeedCategories.plist in Resources */,
 				2A6E4C7A1853FB7100F5D03C /* RMBOPopoverMenuViewController.xib in Resources */,
 				2A0F3D72183DDD350036C0CB /* Images.xcassets in Resources */,
@@ -604,6 +608,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RomiboController/RomiboController-Prefix.pch";
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
@@ -612,7 +617,7 @@
 				INFOPLIST_FILE = "RomiboController/RomiboController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51DEE047-DCF1-490C-B2B0-6C967945A0CB";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -626,6 +631,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RomiboController/RomiboController-Prefix.pch";
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
@@ -634,7 +640,7 @@
 				INFOPLIST_FILE = "RomiboController/RomiboController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3CEB4975-73C7-40F8-9D67-3D8EF586E9D7";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

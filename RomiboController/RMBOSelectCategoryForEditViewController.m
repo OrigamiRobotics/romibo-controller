@@ -39,7 +39,7 @@
     [self.view setBackgroundColor:[UIColor rmbo_blueStarBackground]];
     
 	if (!_mainContext) {
-        AppDelegate *del = [[UIApplication sharedApplication] delegate];
+        AppDelegate *del = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         _mainContext = [del managedObjectContext];
     }
     

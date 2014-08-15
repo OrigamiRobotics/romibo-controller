@@ -12,6 +12,8 @@
 #import "RMBOActionDataSource.h"
 #import "JSAnalogueStick.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Nordic_Bluetooth_LE/ConnectionManager.h"
+
 //#import <ShowKit/ShowKit.h>
 @class RMBOCategory;
 
