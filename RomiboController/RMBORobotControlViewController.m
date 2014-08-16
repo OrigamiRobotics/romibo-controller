@@ -790,7 +790,20 @@ typedef NS_ENUM(NSInteger, RMBOEyeMood) {
 
 
 
+// Required by ConnectionManagerDelegate protocol for BluetoothLE
+- (void) isBluetoothEnabled:(bool) enabled
+{
+    NSLog(@"RMBORobotControlViewController: isBluetoothEnabled called with value %@",enabled?@"YES":@"NO");
+}
+- (void) didDiscoverTag:(ProximityTag*) tag
+{
+    NSLog(@"RMBORobotControlViewController: didDiscoverTag called with tag %@",tag);
+    
+}
+- (void) didUpdateData:(id) tag{
+    NSLog(@"RMBORobotControlViewController: didUpdateData called with tag %@",tag);
 
+}
 
 
 

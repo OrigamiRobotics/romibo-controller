@@ -53,7 +53,7 @@ NSString * romibo_characteristic_Notify_ID = @"AE1E0003-9459-11E3-BAA8-0800200C9
     [uuidArray addObject:(id) romibo_service_ID];
 
     NSLog(@"Trying to retrieve %ld peripherals: %@", [uuidArray count], uuidArray);
-    [cm retrievePeripherals:uuidArray];
+    [cm retrievePeripheralsWithIdentifiers:uuidArray];
 }
 
 
@@ -135,7 +135,7 @@ NSString * romibo_characteristic_Notify_ID = @"AE1E0003-9459-11E3-BAA8-0800200C9
 
 - (void) centralManager:(CBCentralManager *)central didRetrievePeripherals:(NSArray *)peripherals
 {
-    NSLog(@"Did retrieve %d peripherals.", [peripherals count]);
+    NSLog(@"Did retrieve %lu peripherals.", (unsigned long)[peripherals count]);
     
 //    for (CBPeripheral* p in peripherals)
 //    {

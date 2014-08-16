@@ -17,7 +17,8 @@
 //#import <ShowKit/ShowKit.h>
 @class RMBOCategory;
 
-@interface RMBORobotControlViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, MCBrowserViewControllerDelegate, RMBOActionDataSourceDelegate, UIAlertViewDelegate, JSAnalogueStickDelegate, MCSessionDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UIAlertViewDelegate>
+@interface RMBORobotControlViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, MCBrowserViewControllerDelegate, RMBOActionDataSourceDelegate, UIAlertViewDelegate, JSAnalogueStickDelegate, MCSessionDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UIAlertViewDelegate,
+ConnectionManagerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *mainContext;
 @property (nonatomic, weak) IBOutlet UIView *joyStickView;
@@ -66,5 +67,9 @@
 - (IBAction)changeMood:(id)sender;
 
 - (void) reloadCategoriesAndActions;
+
+// Required by ConnectionManagerDelegate protocol for BluetoothLE
+- (void) isBluetoothEnabled:(bool) enabled;
+- (void) didDiscoverTag:(ProximityTag*) tag;
 
 @end

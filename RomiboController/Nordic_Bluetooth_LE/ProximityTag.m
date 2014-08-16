@@ -105,8 +105,8 @@
     if (self = [super init]) {
         _peripheralCFUUIDRef = CFUUIDCreateFromString(NULL, (__bridge_retained CFStringRef) [decoder decodeObjectForKey:@"UUIDString"]);
         _name = [decoder decodeObjectForKey:@"name"];
-        _linkLossAlertLevelOnTag = [decoder decodeIntegerForKey:@"linkLossAlertLevelOnTag"];
-        _linkLossAlertLevelOnPhone = [decoder decodeIntegerForKey:@"linkLossAlertLevelOnPhone"];
+        _linkLossAlertLevelOnTag = (int)[decoder decodeIntegerForKey:@"linkLossAlertLevelOnTag"];
+        _linkLossAlertLevelOnPhone = (int)[decoder decodeIntegerForKey:@"linkLossAlertLevelOnPhone"];
         _rangeMonitoringIsEnabled = [decoder decodeBoolForKey:@"rangeMonitoringIsEnabled"];
         _rssiThreshold = [decoder decodeDoubleForKey:@"RSSIThreshold"];
         _locationTrackingIsEnabled = [decoder decodeBoolForKey:@"locationTrackingIsEnabled"];
@@ -247,9 +247,10 @@
 - (void) encodeWithCoder:(NSCoder *) encoder
 {
     // Trying to save a tag without UUID will fail. Assert to be able to know what happens from crash log.
-    assert(self.peripheral.UUID != nil);
+    assert(self.peripheral.identifier != nil);
     
-    NSString* uuidString = (__bridge_transfer NSString*) CFUUIDCreateString(NULL, self.peripheral.UUID);
+    NSString* uuidString = [self.peripheral.identifier UUIDString];
+
     [encoder encodeObject:uuidString forKey:@"UUIDString"];
     
     [encoder encodeObject:self.name forKey:@"name"];
@@ -272,7 +273,7 @@
         self.name = [self.peripheral name];
     }
     
-    self.peripheralCFUUIDRef = [self.peripheral UUID];
+    self.peripheralCFUUIDRef = (__bridge CFUUIDRef)self.peripheral.identifier;
     
     [self.peripheral readRSSI];
     
@@ -459,7 +460,7 @@
 - (void) peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
 {
     NSLog(@"Did discover characteristics for service %@ on peripheral %@", service, peripheral);
-    NSLog(@"characteristics num: %d array: %@", service.characteristics.count, [service characteristics]);
+    NSLog(@"characteristics num: %lu array: %@", (unsigned long)service.characteristics.count, [service characteristics]);
     for(CBCharacteristic *c in [service characteristics]) 
     {
         NSLog(@"  in loop, characteristic c: %@", c);
@@ -500,7 +501,7 @@
         if ((properties | CBCharacteristicPropertyIndicateEncryptionRequired) == CBCharacteristicPropertyIndicateEncryptionRequired)
             propertiesStr = [propertiesStr stringByAppendingString:@" - Indicate Encryption Required"];
         
-        NSLog(@"    %@  properties: 0x%x", propertiesStr, properties);
+        NSLog(@"    %@  properties: 0x%x", propertiesStr, (int)properties);
 
         
         if([service isEqual:batteryService] &&
