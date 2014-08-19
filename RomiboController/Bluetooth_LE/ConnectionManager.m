@@ -52,23 +52,22 @@ NSString * romibo_characteristic_Notify_ID = @"AE1E0003-9459-11E3-BAA8-0800200C9
     
     [uuidArray addObject:(id) romibo_service_ID];
 
-    NSLog(@"Trying to retrieve %ld peripherals: %@", [uuidArray count], uuidArray);
+    NSLog(@"Trying to retrieve %ld peripherals: %@", (unsigned long)[uuidArray count], uuidArray);
     [cm retrievePeripheralsWithIdentifiers:uuidArray];
+    
 }
 
 
 - (void) startScanForTags
 {
-    NSDictionary * scanOptions = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:CBCentralManagerScanOptionAllowDuplicatesKey];
-//    NSArray* serviceArray = [NSArray arrayWithObjects:ProximityTag.linkLossServiceUUID, ProximityTag.findMeServiceUUID, romibo_service, nil];
-    NSArray * serviceArray = [NSArray arrayWithObjects: ProximityTag.romiboServiceUUID, nil];
-//    NSArray* serviceArray = [NSArray arrayWithObjects:romibo_service, nil];
+    NSDictionary * scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:[NSNumber numberWithBool:NO]};
+    //[NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO] forKey:CBCentralManagerScanOptionAllowDuplicatesKey];
+    NSArray * serviceArray = @[ProximityTag.romiboServiceUUID];
 
     // Make sure we start scan from scratch
     [cm stopScan];
     
     [cm scanForPeripheralsWithServices:serviceArray options:scanOptions];
-//    [cm scanForPeripheralsWithServices:serviceArray options:scanOptions];
 }
 
 - (void) stopScanForTags

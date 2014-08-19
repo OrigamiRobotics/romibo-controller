@@ -12,7 +12,7 @@
 #import "RMBOActionDataSource.h"
 #import "JSAnalogueStick.h"
 #import <QuartzCore/QuartzCore.h>
-#import "Nordic_Bluetooth_LE/ConnectionManager.h"
+#import "Bluetooth_LE/ConnectionManager.h"
 
 //#import <ShowKit/ShowKit.h>
 @class RMBOCategory;
@@ -20,20 +20,12 @@
 @interface RMBORobotControlViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, MCBrowserViewControllerDelegate, RMBOActionDataSourceDelegate, UIAlertViewDelegate, JSAnalogueStickDelegate, MCSessionDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UIAlertViewDelegate,
 ConnectionManagerDelegate>
 
-@property (nonatomic, strong) NSManagedObjectContext *mainContext;
 @property (nonatomic, weak) IBOutlet UIView *joyStickView;
 @property (nonatomic, weak) IBOutlet UIView *headTiltView;
-@property (nonatomic, strong) NSArray *fetchedCategories;
 @property (nonatomic, weak) IBOutlet UICollectionView *cateogriesCollectionView;
 @property (nonatomic, weak) IBOutlet UISlider *headTiltSlider;
 @property (nonatomic, weak) IBOutlet UIButton *editorButton;
 @property (nonatomic, weak) IBOutlet UICollectionView *tabCollectionView;
-@property (nonatomic, strong) NSIndexPath *selectedTab;
-@property (nonatomic, strong) UIPopoverController *menuPopoverController;
-@property (nonatomic, strong) MCSession *session;
-@property (nonatomic, assign) BOOL connectedToRobot;
-@property (nonatomic, assign) BOOL loggedIntoShowkit;
-@property (nonatomic, strong) MCBrowserViewController *multipeerBrowser;
 @property (nonatomic, weak) IBOutlet UIView *robotControls;
 @property (nonatomic, weak) IBOutlet UIView *remoteVideoView;
 @property (nonatomic, weak) IBOutlet UILabel *notConnectedLabel;
@@ -45,6 +37,18 @@ ConnectionManagerDelegate>
 @property (nonatomic, weak) IBOutlet UIButton *indifferentButton;
 @property (nonatomic, weak) IBOutlet UIButton *twitterpatedButton;
 @property (nonatomic, weak) IBOutlet UIButton *blinkButton;
+@property (nonatomic, strong) NSManagedObjectContext *mainContext;
+@property (nonatomic, strong) NSIndexPath *selectedTab;
+@property (nonatomic, strong) UIPopoverController *menuPopoverController;
+@property (nonatomic, strong) MCSession *session;
+@property (nonatomic, assign) BOOL connectedToRobot;
+@property (nonatomic, assign) BOOL loggedIntoShowkit;
+@property (nonatomic, strong) MCBrowserViewController *multipeerBrowser;
+@property (nonatomic, strong) NSArray *fetchedCategories;
+
+
+// Bluetooth connection
+@property (nonatomic, assign) BOOL isScanning;
 
 - (void)customizeViews;
 - (void)loadEditorView;

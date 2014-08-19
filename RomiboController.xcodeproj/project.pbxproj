@@ -49,7 +49,9 @@
 		2ACF112D1851AF8500237570 /* UIImage+RMBOTintImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACF112C1851AF8500237570 /* UIImage+RMBOTintImage.m */; };
 		2AE1E33D185402A9004C430F /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AE1E33C185402A9004C430F /* MultipeerConnectivity.framework */; };
 		2AE1E350185439EE004C430F /* JSAnalogueStick.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE1E34F185439EE004C430F /* JSAnalogueStick.m */; };
-		D7DDFD1F199E68030088B26F /* Nordic_Bluetooth_LE in Resources */ = {isa = PBXBuildFile; fileRef = D7DDFD1E199E68030088B26F /* Nordic_Bluetooth_LE */; };
+		D715872519A40337000E88C5 /* ConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D715871F19A40336000E88C5 /* ConnectionManager.m */; };
+		D715872619A40337000E88C5 /* ProximityTag.m in Sources */ = {isa = PBXBuildFile; fileRef = D715872119A40336000E88C5 /* ProximityTag.m */; };
+		D715872719A40337000E88C5 /* TagLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D715872319A40336000E88C5 /* TagLocationManager.m */; };
 		F8F7264B5EC04F7F95D110D2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F341C53CDB814AF9B6F2D294 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -135,7 +137,12 @@
 		2AE1E34E185439EE004C430F /* JSAnalogueStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAnalogueStick.h; sourceTree = "<group>"; };
 		2AE1E34F185439EE004C430F /* JSAnalogueStick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAnalogueStick.m; sourceTree = "<group>"; };
 		786440EAE7EF4AFCB330F973 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		D7DDFD1E199E68030088B26F /* Nordic_Bluetooth_LE */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Nordic_Bluetooth_LE; sourceTree = "<group>"; };
+		D715871E19A40336000E88C5 /* ConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionManager.h; sourceTree = "<group>"; };
+		D715871F19A40336000E88C5 /* ConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionManager.m; sourceTree = "<group>"; };
+		D715872019A40336000E88C5 /* ProximityTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProximityTag.h; sourceTree = "<group>"; };
+		D715872119A40336000E88C5 /* ProximityTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProximityTag.m; sourceTree = "<group>"; };
+		D715872219A40336000E88C5 /* TagLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagLocationManager.h; sourceTree = "<group>"; };
+		D715872319A40336000E88C5 /* TagLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagLocationManager.m; sourceTree = "<group>"; };
 		F341C53CDB814AF9B6F2D294 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libPods.a; path = "../../../../../../../../Desktop/romibo-controller-master/Pods/libPods.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -218,11 +225,11 @@
 		2A0F3D62183DDD350036C0CB /* RomiboController */ = {
 			isa = PBXGroup;
 			children = (
+				D715872419A40336000E88C5 /* Bluetooth_LE */,
 				2A0F3D6B183DDD350036C0CB /* AppDelegate.h */,
 				2A0F3D6C183DDD350036C0CB /* AppDelegate.m */,
 				2A31CF7D184077EF007A6DB2 /* RMBORobotControlViewController.h */,
 				2A31CF7E184077EF007A6DB2 /* RMBORobotControlViewController.m */,
-				D7DDFD1E199E68030088B26F /* Nordic_Bluetooth_LE */,
 				2A782A821840894A0008F2AA /* RMBOEditNavigationViewController.h */,
 				2A782A831840894A0008F2AA /* RMBOEditNavigationViewController.m */,
 				2A782A71184081A20008F2AA /* Views */,
@@ -321,6 +328,19 @@
 			name = Joystick;
 			sourceTree = "<group>";
 		};
+		D715872419A40336000E88C5 /* Bluetooth_LE */ = {
+			isa = PBXGroup;
+			children = (
+				D715871E19A40336000E88C5 /* ConnectionManager.h */,
+				D715871F19A40336000E88C5 /* ConnectionManager.m */,
+				D715872019A40336000E88C5 /* ProximityTag.h */,
+				D715872119A40336000E88C5 /* ProximityTag.m */,
+				D715872219A40336000E88C5 /* TagLocationManager.h */,
+				D715872319A40336000E88C5 /* TagLocationManager.m */,
+			);
+			path = Bluetooth_LE;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -403,7 +423,6 @@
 			files = (
 				2A31CF7A184075E2007A6DB2 /* ControllerStoryboard.storyboard in Resources */,
 				2A0F3D67183DDD350036C0CB /* InfoPlist.strings in Resources */,
-				D7DDFD1F199E68030088B26F /* Nordic_Bluetooth_LE in Resources */,
 				2A782A7E184085D60008F2AA /* SeedCategories.plist in Resources */,
 				2A6E4C7A1853FB7100F5D03C /* RMBOPopoverMenuViewController.xib in Resources */,
 				2A0F3D72183DDD350036C0CB /* Images.xcassets in Resources */,
@@ -462,9 +481,12 @@
 				2A782A701840800F0008F2AA /* RMBOCategoryCollectionViewCell.m in Sources */,
 				2A06257918A1727500FD9F2D /* RMBOAction.m in Sources */,
 				2ACEF7FC1842F46000315F6F /* RMBOColorPickerViewController.m in Sources */,
+				D715872519A40337000E88C5 /* ConnectionManager.m in Sources */,
 				2ACEF7F91842BD9800315F6F /* RMBOActionDataSource.m in Sources */,
 				2A782A841840894A0008F2AA /* RMBOEditNavigationViewController.m in Sources */,
 				2A0315D91851A3D800782D89 /* RMBOTabCell.m in Sources */,
+				D715872719A40337000E88C5 /* TagLocationManager.m in Sources */,
+				D715872619A40337000E88C5 /* ProximityTag.m in Sources */,
 				2A6E4C791853FB7100F5D03C /* RMBOPopoverMenuViewController.m in Sources */,
 				2A06257C18A1727500FD9F2D /* RMBOCategory.m in Sources */,
 				2ACEF806184332F300315F6F /* RMBOActionCategoryCell.m in Sources */,

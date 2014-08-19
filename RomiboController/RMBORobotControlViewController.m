@@ -788,21 +788,70 @@ typedef NS_ENUM(NSInteger, RMBOEyeMood) {
 
 
 
+#pragma mark == Core Bluetooth
 
-
-// Required by ConnectionManagerDelegate protocol for BluetoothLE
-- (void) isBluetoothEnabled:(bool) enabled
+- (IBAction) addTagButtonPressed:(id)sender
 {
-    NSLog(@"RMBORobotControlViewController: isBluetoothEnabled called with value %@",enabled?@"YES":@"NO");
-}
-- (void) didDiscoverTag:(ProximityTag*) tag
-{
-    NSLog(@"RMBORobotControlViewController: didDiscoverTag called with tag %@",tag);
+    if(!self.isScanning)
+    {
+        [self startScanForTags];
+    }
+    else
+    {
+        [self stopScanForTags];
+    }
     
 }
-- (void) didUpdateData:(id) tag{
-    NSLog(@"RMBORobotControlViewController: didUpdateData called with tag %@",tag);
 
+- (void) startScanForTags
+{
+    NSLog(@"Starting scan for new tags...");
+    [[ConnectionManager sharedInstance] startScanForTags];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(addTagButtonPressed:)];
+    
+    self.isScanning = YES;
+}
+
+- (void) stopScanForTags
+{
+    
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTagButtonPressed:)];
+    
+    NSLog(@"Stopping scan for new tags.");
+    
+    
+    [[ConnectionManager sharedInstance] stopScanForTags];
+    self.isScanning = NO;
+}
+
+- (void) didUpdateData:(ProximityTag*)tag
+{
+    NSLog(@"RMBORobotControlViewController: didUpdateData called with tag %@",tag);    
+//    self.connection_Label.text = tag.name;
+    
+}
+
+- (void) didDiscoverTag:(ProximityTag*) tag
+{
+    NSLog(@"RMBORobotControlViewController: didDiscoverTag called with tag %@",tag);    
+    tag.delegate = self;
+    
+}
+
+- (void) didFailToConnect:(id)tag
+{
+    UIAlertView *dialog = [[UIAlertView alloc] initWithTitle:@"Failed to connect" message:[NSString stringWithFormat:@"The app couldn't connect to %@. \n\nThis usually indicates a previous bond. Go to the settings and clear it before you try again.", [tag name]] delegate:self cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+    [dialog show];
+    [self stopScanForTags];
+}
+
+
+- (void) isBluetoothEnabled:(bool)enabled
+{
+    NSLog(@"RMBORobotControlViewController: isBluetoothEnabled called with value %@",enabled?@"YES":@"NO");
+    
+    // [self.navigationItem.rightBarButtonItem setEnabled:enabled];
 }
 
 

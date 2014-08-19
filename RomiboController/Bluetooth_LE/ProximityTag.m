@@ -108,7 +108,7 @@
         _linkLossAlertLevelOnTag = (int)[decoder decodeIntegerForKey:@"linkLossAlertLevelOnTag"];
         _linkLossAlertLevelOnPhone = (int)[decoder decodeIntegerForKey:@"linkLossAlertLevelOnPhone"];
         _rangeMonitoringIsEnabled = [decoder decodeBoolForKey:@"rangeMonitoringIsEnabled"];
-        _rssiThreshold = [decoder decodeDoubleForKey:@"RSSIThreshold"];
+        _rssiThreshold = (float)[decoder decodeDoubleForKey:@"RSSIThreshold"];
         _locationTrackingIsEnabled = [decoder decodeBoolForKey:@"locationTrackingIsEnabled"];
         _lastSeenLocation = [decoder decodeObjectForKey:@"lastSeenLocation"];
         _hasBeenBonded = [decoder decodeBoolForKey:@"hasBeenBonded"];
@@ -175,7 +175,7 @@
     _peripheral = peripheral;
     _peripheral.delegate = self;
 
-    self.rssiLevel = [[_peripheral RSSI] doubleValue];
+    self.rssiLevel = (float)[[_peripheral RSSI] doubleValue];
     
     if (!self.name && [_peripheral name])
     {
@@ -334,7 +334,7 @@
         }
     }
     
-    float requiredRSSIChange = 0.15 * ABS(self.rssiThreshold);
+    float requiredRSSIChange = (float)(0.15 * ABS(self.rssiThreshold));
     NSLog(@"RSSI: %f, change: %f, limit: %f, current location: %@", self.rssiLevel, requiredRSSIChange, self.rssiThreshold, self.lastSeenLocation);
     
     if ((self.rssiLevel < (self.rssiThreshold - requiredRSSIChange)) && 
