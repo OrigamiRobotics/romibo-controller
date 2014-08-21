@@ -17,8 +17,20 @@
 //#import <ShowKit/ShowKit.h>
 @class RMBOCategory;
 
-@interface RMBORobotControlViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, MCBrowserViewControllerDelegate, RMBOActionDataSourceDelegate, UIAlertViewDelegate, JSAnalogueStickDelegate, MCSessionDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UIAlertViewDelegate,
-ConnectionManagerDelegate>
+@interface RMBORobotControlViewController : UIViewController <UICollectionViewDataSource, 
+                                            UICollectionViewDelegate, UITableViewDelegate, 
+                                            MCBrowserViewControllerDelegate, RMBOActionDataSourceDelegate, 
+                                            UIAlertViewDelegate, JSAnalogueStickDelegate, MCSessionDelegate, 
+                                            UICollectionViewDelegateFlowLayout, UIScrollViewDelegate, UIAlertViewDelegate,
+                                            ConnectionManagerDelegate>
+{
+
+    BOOL isShowingLandscapeView;
+    NSUInteger currentPage;
+    BOOL isTurningClockwise;
+    BOOL isTurningCounterclockwise;
+    
+}
 
 @property (nonatomic, weak) IBOutlet UIView *joyStickView;
 @property (nonatomic, weak) IBOutlet UIView *headTiltView;
@@ -45,14 +57,27 @@ ConnectionManagerDelegate>
 @property (nonatomic, assign) BOOL loggedIntoShowkit;
 @property (nonatomic, strong) MCBrowserViewController *multipeerBrowser;
 @property (nonatomic, strong) NSArray *fetchedCategories;
-
-
+@property (nonatomic, strong) UIAlertView *showkitLoginAlertView;
+@property (nonatomic, strong) NSTimer *turningTimer;
+@property (nonatomic, assign) CGFloat lastX;
+@property (nonatomic, assign) CGFloat lastY;
 // Bluetooth connection
 @property (nonatomic, assign) BOOL isScanning;
+
+// Hardware state
+@property SInt8 last_leftMotor;         
+@property SInt8 last_rightMotor;        
+@property UInt8 last_tiltLeftRight;
+@property UInt8 last_tiltForwardBack;
+@property float leftRightMotorBalance;
+
+@property (nonatomic, assign) BOOL isV6Hardware;
+
 
 - (void)customizeViews;
 - (void)loadEditorView;
 - (IBAction)showMenuPopover:(id)sender;
+- (BOOL)detectV6Hardware;
 - (void)loadCategoriesFromPersistentStore;
 - (NSArray *)loadActionsFromPersistentStoreWithCateogry:(RMBOCategory *)category;
 - (void)manageRobotConnection;
@@ -70,6 +95,18 @@ ConnectionManagerDelegate>
 - (IBAction)endTurnRobotInPlaceCounterClockwiseAction:(id)sender;
 - (IBAction)changeMood:(id)sender;
 
+- (void)orientationChanged:(NSNotification *)notification;
+- (void)sendCommandToRobot:(NSDictionary *)commandDict;
+- (void)sendDataToIPod:(NSData *)data;
+- (void)manageShowkitLogin;
+- (void)initShowkitVideoCall;
+- (void)endShowkitCall;
+- (void)showkitStatusChanging:(NSNotification *)notification;
+- (void)showNotConnectedDisplay;
+- (void)removeNotConnectedDisplay;
+- (void)turnRobotClockwise:(id)sender;
+- (void)turnRobotCounterClockwise:(id)sender;
+
 - (void) reloadCategoriesAndActions;
 
 // Required by ConnectionManagerDelegate protocol for BluetoothLE
@@ -77,3 +114,5 @@ ConnectionManagerDelegate>
 - (void) didDiscoverTag:(ProximityTag*) tag;
 
 @end
+
+
