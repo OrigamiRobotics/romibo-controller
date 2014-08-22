@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B3116" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Action" representedClassName="RMBOAction" syncable="YES">
         <attribute name="buttonColor" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="buttonTitle" optional="YES" attributeType="String" syncable="YES"/>
@@ -7,16 +7,17 @@
         <attribute name="speachSpeedRate" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="speechPhrase" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="threeBasedIndex" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="action" inverseEntity="Category" syncable="YES"/>
     </entity>
     <entity name="Category" representedClassName="RMBOCategory" syncable="YES">
         <attribute name="displayOrder" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pageColor" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="preview" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="action" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Action" inverseName="category" inverseEntity="Action" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Action" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Category" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Action" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="Category" positionX="0" positionY="0" width="128" height="120"/>
     </elements>
 </model>
