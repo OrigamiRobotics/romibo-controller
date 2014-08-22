@@ -639,7 +639,7 @@
 				INFOPLIST_FILE = "RomiboController/RomiboController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7d418535-2ea1-4ba4-b630-a08c32b47dca";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -662,7 +662,7 @@
 				INFOPLIST_FILE = "RomiboController/RomiboController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "7d418535-2ea1-4ba4-b630-a08c32b47dca";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

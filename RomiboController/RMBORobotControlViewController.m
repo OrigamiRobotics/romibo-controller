@@ -85,6 +85,13 @@
     // TODO: add UI so this can be set by the user and persist between
     // invocations so the setting always works. -ETJ 19 Aug 2014
     _leftRightMotorBalance = 1.0f;
+    
+    // TODO: Unhide the extra expression buttons when we've got working emotion
+    // eyes again. -ETJ 22 Aug 2014
+    _curiousButton.hidden = YES;
+    _excitedButton.hidden = YES;
+    _indifferentButton.hidden = YES;
+    _twitterpatedButton.hidden = YES;
 }
 
 - (void)awakeFromNib
@@ -609,7 +616,13 @@
     
     // Turn-only zone
     else if ( 90-turnOnlyZoneAngle <= fabs(theta) && fabs(theta) <= 90+turnOnlyZoneAngle){
+        // Relate speed of turn to distance from center
         float motorSpeed = (float)sqrt( x*x + y*y);
+        
+        // Buuut... turns feel twitchy and too fast.  Instead, we want slower 
+        // speed closer to the center and  
+        motorSpeed = (float)pow( motorSpeed, 4);
+        
         // because x & y describe a 2-unit square, not a circle, 
         // clip motorSpeed to 1
         motorSpeed = MIN( 1, motorSpeed);
