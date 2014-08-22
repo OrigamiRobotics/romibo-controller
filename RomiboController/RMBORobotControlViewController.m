@@ -414,7 +414,11 @@
         [self addTagButtonPressed:nil];
     }
     else {
-        UIAlertView *disconnectView = [[UIAlertView alloc] initWithTitle:@"Disconnect from Robot?" message:@"Are you sure you want to disconect from the robot?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Disconnect", nil];
+        UIAlertView *disconnectView = [[UIAlertView alloc] initWithTitle:@"Disconnect from Robot?" 
+                            message:@"Are you sure you want to disconect from the robot?" 
+                           delegate:self 
+                  cancelButtonTitle:@"Cancel" 
+                  otherButtonTitles:@"Disconnect", nil];
         [disconnectView show];
     }
 }
@@ -437,6 +441,7 @@
         if (buttonIndex == 1) {
             [_session disconnect];
             _connectedToRobot = NO;
+            // TODO: add method to disconnect from BTLE board here. -ETJ 20 Aug 2014
             [self setupMultipeerConnectivity];
         }
     }
@@ -569,12 +574,6 @@
     cbPointer[2] = leftRightTilt;
     cbPointer[3] = forwardBackTilt;
     
-    // cbPointer[3] = leftMotor;
-    // cbPointer[2] = rightMotor;
-    // cbPointer[1] = leftRightTilt;
-    // cbPointer[0] = forwardBackTilt;
-    //
-    
     return commandBytes;
 }                            
 
@@ -688,7 +687,7 @@ SInt8 scaleToSInt8( float x, float domainMin, float domainMax)
                         kRMBOChangeMood: @"Change Mood",
                     };
     NSLog( @"%@",(NSString *)actionTitlesDict[commandDict[@"command"]]);
-    // END DEBUG 
+    // END DEBUG */
     
     // Parse data to see if it should be sent to the iPod (eyes, sound) or Bluetooth board
     
@@ -711,7 +710,13 @@ SInt8 scaleToSInt8( float x, float domainMin, float domainMax)
 
 - (void)sendCommandToBTBoard:(NSDictionary *)commandDict
 { 
-        
+    // Only send messages every 100 ms
+    NSTimeInterval minMessageGap= 0.1;
+    NSDate *curTime = [NSDate date];
+    if ( [curTime timeIntervalSinceDate:_lastBTMessageTime] < minMessageGap){
+        return;
+    }
+    
     NSString *command = commandDict[@"command"];
     
     if ([command isEqualToString:kRMBOTurnInPlaceClockwise]){
@@ -744,13 +749,18 @@ SInt8 scaleToSInt8( float x, float domainMin, float domainMax)
 
     }
     else if ([command isEqualToString:kRMBOHeadTilt]){
-        // TODO: Current (August 2014) versions of the Romibo hardware
+        // NOTE: Current (August 2014) versions of the Romibo hardware
         // don't include a left/right tilt servo, but the Romibo 
         // firmware does.  So... we don't set _last_tiltLeftRight
         // anywhere, but we could.  In which case we'd 
         // use two constants, kRMBOHeadTiltLeftRight & kRMBOHeadTiltForwardBack
         // and set those separately. -ETJ 20 Aug 2014
+        
         _last_tiltForwardBack = (UInt8)[commandDict[@"angle"] floatValue];
+        // ETJ DEBUG
+        NSLog(@"%@", commandDict[@"angle"]);
+        NSLog(@"kRMBOHeadTiltForwardBack set to %d", _last_tiltForwardBack);
+        // END DEBUG         
     }
     SInt8 balancedLeft, balancedRight;
     
@@ -766,11 +776,15 @@ SInt8 scaleToSInt8( float x, float domainMin, float domainMax)
                                            leftRightTilt:_last_tiltLeftRight
                                          forwardBackTilt:_last_tiltForwardBack];
     
+    // Don't resend a message identical to the last one sent
+    if (commandBytes == _lastBTCommandBytes){ return;}
     // ETJ DEBUG
     UInt8 *cb = (UInt8 *)&commandBytes;
     NSLog(@"commandBytes:  %d %d %d %d", (SInt8)cb[0], (SInt8)cb[1], cb[2], cb[3]);
     // END DEBUG 
     
+    _lastBTMessageTime = [NSDate date];
+    _lastBTCommandBytes = commandBytes;
     [[ConnectionManager sharedInstance].connectedPeripheral writeValue:[NSData dataWithBytes:(void *)&commandBytes length:4]
                                                      forCharacteristic:[ConnectionManager sharedInstance].connectToTag.romibo_characteristic_write
                                                                   type:CBCharacteristicWriteWithResponse];        
@@ -784,7 +798,7 @@ SInt8 scaleToSInt8( float x, float domainMin, float domainMax)
 
 - (void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state
 {
-    // TODO: add connection handling for BT board
+    // TODO: add connection handling for BT board -ETJ 20 Aug 2014
     _connectedToRobot = YES;
     if (state == MCSessionStateConnected) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -873,31 +887,22 @@ typedef NS_ENUM(NSInteger, RMBOEyeMood) {
     RMBOEyeMood_Twitterpated,
     RMBOEyeBlink
 };
-
+#define NSV(val) [NSValue valueWithNonretainedObject:(val)]
 - (IBAction)changeMood:(id)sender
 {
-    NSNumber *mood;
-    if ([sender isEqual:self.curiousButton]) {
-        mood = [NSNumber numberWithInteger:RMBOEyeMood_Curious];
-    }
-    else if ([sender isEqual:self.excitedButton]) {
-        mood = [NSNumber numberWithInteger:RMBOEyeMood_Excited];
-    }
-    else if ([sender isEqual:self.indifferentButton]) {
-        mood = [NSNumber numberWithInteger:RMBOEyeMood_Indifferent];
-    }
-    else if ([sender isEqual:self.twitterpatedButton]) {
-        mood = [NSNumber numberWithInteger:RMBOEyeMood_Twitterpated];
-    }
-    else if ([sender isEqual:self.blinkButton]) {
-        mood = [NSNumber numberWithInteger:RMBOEyeBlink];
-    }
-    else {
-        return;
-    }
-
+    // Wrap buttons in NSValues since they don't conform to NSCopying
+    NSDictionary *moodForButton = @{
+        NSV(_curiousButton):         @(RMBOEyeMood_Curious),
+        NSV(_excitedButton):         @(RMBOEyeMood_Excited),
+        NSV(_indifferentButton):     @(RMBOEyeMood_Indifferent),
+        NSV(_twitterpatedButton):    @(RMBOEyeMood_Twitterpated),
+        NSV(_blinkButton):           @(RMBOEyeBlink)
+    };
+    NSNumber *mood = moodForButton[NSV(sender)];
+    if (!mood){ return;}
+    
     if (_connectedToRobot) {
-        NSDictionary *params = @{@"command" : kRMBOChangeMood, @"mood" : mood};
+        NSDictionary *params = @{@"command" : kRMBOChangeMood, @"mood" :mood };
         [self sendCommandToRobot:params];
     }
 }

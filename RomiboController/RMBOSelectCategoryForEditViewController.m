@@ -97,7 +97,7 @@
 {
     RMBOCategory *category = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:_mainContext];
     
-    [category setDisplayOrder:[NSNumber numberWithInteger:_fetchedCategories.count + 1]];
+    [category setDisplayOrder:@(_fetchedCategories.count + 1)];
     
     NSError *error;
     [_mainContext save:&error];

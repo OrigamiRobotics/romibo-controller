@@ -138,7 +138,7 @@
     
     [action setCategory:_category];
     
-    [action setThreeBasedIndex:[NSNumber numberWithInteger:_dataSource.fetchedButtons.count + 1]];
+    [action setThreeBasedIndex:@(_dataSource.fetchedButtons.count + 1)];
 
     [action setSpeechPhrase:@""];
     [action setButtonTitle:@"New Action"];

@@ -63,7 +63,11 @@
 @property (nonatomic, assign) CGFloat lastY;
 // Bluetooth connection
 @property (nonatomic, assign) BOOL isScanning;
+@property (nonatomic, strong) NSDate *lastBTMessageTime;
+@property (nonatomic, assign) UInt32 lastBTCommandBytes;
 
+    
+    
 // Hardware state
 @property SInt8 last_leftMotor;         
 @property SInt8 last_rightMotor;        

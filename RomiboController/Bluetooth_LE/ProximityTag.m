@@ -105,13 +105,13 @@
     if (self = [super init]) {
         _peripheralCFUUIDRef = CFUUIDCreateFromString(NULL, (__bridge_retained CFStringRef) [decoder decodeObjectForKey:@"UUIDString"]);
         _name = [decoder decodeObjectForKey:@"name"];
-        _linkLossAlertLevelOnTag = (int)[decoder decodeIntegerForKey:@"linkLossAlertLevelOnTag"];
-        _linkLossAlertLevelOnPhone = (int)[decoder decodeIntegerForKey:@"linkLossAlertLevelOnPhone"];
-        _rangeMonitoringIsEnabled = [decoder decodeBoolForKey:@"rangeMonitoringIsEnabled"];
-        _rssiThreshold = (float)[decoder decodeDoubleForKey:@"RSSIThreshold"];
-        _locationTrackingIsEnabled = [decoder decodeBoolForKey:@"locationTrackingIsEnabled"];
-        _lastSeenLocation = [decoder decodeObjectForKey:@"lastSeenLocation"];
-        _hasBeenBonded = [decoder decodeBoolForKey:@"hasBeenBonded"];
+        _linkLossAlertLevelOnTag =     (int)[decoder decodeIntegerForKey:@"linkLossAlertLevelOnTag"];
+        _linkLossAlertLevelOnPhone =   (int)[decoder decodeIntegerForKey:@"linkLossAlertLevelOnPhone"];
+        _rangeMonitoringIsEnabled =         [decoder decodeBoolForKey:@"rangeMonitoringIsEnabled"];
+        _rssiThreshold =             (float)[decoder decodeDoubleForKey:@"RSSIThreshold"];
+        _locationTrackingIsEnabled =        [decoder decodeBoolForKey:@"locationTrackingIsEnabled"];
+        _lastSeenLocation =                 [decoder decodeObjectForKey:@"lastSeenLocation"];
+        _hasBeenBonded =                    [decoder decodeBoolForKey:@"hasBeenBonded"];
         
         NSLog(@"Initializing tag %@ with RSSI-threshold %f and link loss alert %d", _name, _rssiThreshold, _linkLossAlertLevelOnTag);
         
@@ -470,37 +470,42 @@
         
         CBCharacteristicProperties properties = c.properties;
         
-        NSString * propertiesStr = @"Properties ";
-        if ((properties | CBCharacteristicPropertyBroadcast) == CBCharacteristicPropertyBroadcast)
-            propertiesStr = [propertiesStr stringByAppendingString:@" - Broadcast"];
+        NSMutableString * propertiesStr = [NSMutableString stringWithString:@"Properties "];
         
-        if ((properties | CBCharacteristicPropertyRead) == CBCharacteristicPropertyRead)
-            propertiesStr = [propertiesStr stringByAppendingString:@" - Read"];
-        
-        if ((properties | CBCharacteristicPropertyWriteWithoutResponse) == CBCharacteristicPropertyWriteWithoutResponse)
-            propertiesStr = [propertiesStr stringByAppendingString:@" - Write without response"];
-        
-        if ((properties | CBCharacteristicPropertyWrite) == CBCharacteristicPropertyWrite)
-            propertiesStr = [propertiesStr stringByAppendingString:@" - Write"];
-        
-        if ((properties | CBCharacteristicPropertyNotify) == CBCharacteristicPropertyNotify)
-            propertiesStr = [propertiesStr stringByAppendingString:@" - Notify"];
-        
-        if ((properties | CBCharacteristicPropertyIndicate) == CBCharacteristicPropertyIndicate)
-            propertiesStr = [propertiesStr stringByAppendingString:@" - Indicate"];
-        
-        if ((properties | CBCharacteristicPropertyAuthenticatedSignedWrites) == CBCharacteristicPropertyAuthenticatedSignedWrites)
-            propertiesStr = [propertiesStr stringByAppendingString:@" - Authenticated Signed Writes"];
-        
-        if ((properties | CBCharacteristicPropertyExtendedProperties) == CBCharacteristicPropertyExtendedProperties)
-            propertiesStr = [propertiesStr stringByAppendingString:@" - Extended Properties"];
-        
-        if ((properties | CBCharacteristicPropertyNotifyEncryptionRequired) == CBCharacteristicPropertyNotifyEncryptionRequired)
-            propertiesStr = [propertiesStr stringByAppendingString:@" - Notify Encryption Required"];
-        
-        if ((properties | CBCharacteristicPropertyIndicateEncryptionRequired) == CBCharacteristicPropertyIndicateEncryptionRequired)
-            propertiesStr = [propertiesStr stringByAppendingString:@" - Indicate Encryption Required"];
-        
+        //  TODO: For DRY's sake, replace all the ifs below with reference to this dictionary,
+        // NSMutableString *propertiesStr = @"Properties ";
+        // NSDictionary *propertiesStrForCharacteristicProperty = @{
+        //     NSV(CBCharacteristicPropertyBroadcast): @" - Broadcast",
+        //     NSV(CBCharacteristicPropertyRead): @" - Read",
+        //     NSV(CBCharacteristicPropertyWriteWithoutResponse): @" - Write without response",
+        //     NSV(CBCharacteristicPropertyWrite): @" - Write",
+        //     NSV(CBCharacteristicPropertyNotify): @" - Notify",
+        //     NSV(CBCharacteristicPropertyIndicate): @" - Indicate",
+        //     NSV(CBCharacteristicPropertyAuthenticatedSignedWrites): @" - Authenticated Signed Writes",
+        //     NSV(CBCharacteristicPropertyExtendedProperties): @" - Extended Properties",
+        //     NSV(CBCharacteristicPropertyNotifyEncryptionRequired): @" - Notify Encryption Required",
+        //     NSV(CBCharacteristicPropertyIndicateEncryptionRequired): @" - Indicate Encryption Required",
+        // };
+        // int anInt =0;
+        // for (NSValue *key in propertiesStrForCharacteristicProperty){
+        //     NSString *propStr = propertiesStrForCharacteristicProperty[key];
+        //     if (properties | [key getValue:(void *)&anInt]){
+        //         [propertiesStr appendString:propStr];
+        //     }
+        // }
+        // FIXME: test that this behavior ( if (properties & prop)  )
+        // behvaes identically to previous behavior ( if (properties | prop == prop))
+        // -ETJ 21 Aug 2014
+        if (properties & CBCharacteristicPropertyBroadcast)                  [propertiesStr appendString:@" - Broadcast"];
+        if (properties & CBCharacteristicPropertyRead)                       [propertiesStr appendString:@" - Read"];
+        if (properties & CBCharacteristicPropertyWriteWithoutResponse)       [propertiesStr appendString:@" - Write without response"];
+        if (properties & CBCharacteristicPropertyWrite)                      [propertiesStr appendString:@" - Write"];
+        if (properties & CBCharacteristicPropertyNotify)                     [propertiesStr appendString:@" - Notify"];
+        if (properties & CBCharacteristicPropertyIndicate)                   [propertiesStr appendString:@" - Indicate"];
+        if (properties & CBCharacteristicPropertyExtendedProperties)         [propertiesStr appendString:@" - Extended Properties"];
+        if (properties & CBCharacteristicPropertyAuthenticatedSignedWrites)  [propertiesStr appendString:@" - Authenticated Signed Writes"];
+        if (properties & CBCharacteristicPropertyNotifyEncryptionRequired)   [propertiesStr appendString:@" - Notify Encryption Required"];
+        if (properties & CBCharacteristicPropertyIndicateEncryptionRequired) [propertiesStr appendString:@" - Indicate Encryption Required"];
         NSLog(@"    %@  properties: 0x%x", propertiesStr, (int)properties);
 
         
@@ -542,8 +547,8 @@
         NSLog(@"Failed to write value for characteristic %@, reason: %@", characteristic, error);
     }
     else 
-    {
-        NSLog(@"Did write value for characterstic %@, new value: %@", characteristic, [characteristic value]);
+    {   
+        // NSLog(@"Did write value for characteristic %@, new value: %@", characteristic, [characteristic value]);
         
         // If we have successfully written something, bonding has been successful
         if (self.state == PROXIMITY_TAG_STATE_BONDING)
