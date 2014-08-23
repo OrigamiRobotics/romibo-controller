@@ -705,19 +705,22 @@ SInt8 scaleToSInt8( float x, float domainMin, float domainMax)
     // Parse data to see if it should be sent to the iPod (eyes, sound) or Bluetooth board
     
     // TODO: as more actions are added, they should be categorized here. 
-    NSArray *iPodCommands = @[kRMBOSpeakPhrase, kRMBOChangeMood, kRMBODebugLogMessage];
-    //NSArray *btBoardCommands =  @[kRMBOMoveRobot, kRMBOHeadTilt, kRMBOTurnInPlaceClockwise,
-    //                            kRMBOTurnInPlaceCounterClockwise, kRMBOStopRobotMovement];
-                                
-    // if we're talking to the iPod, use original method
-    if (_isV6Hardware || [iPodCommands containsObject:commandDict[@"command"]]){
-        NSData *paramsData = [NSKeyedArchiver archivedDataWithRootObject:commandDict];
-        [self sendDataToIPod:paramsData];
-    }
-    // Otherwise, we need to package our data for the Bluetooth board
-    else{
+    // NSArray *iPodCommands = @[kRMBOSpeakPhrase, kRMBOChangeMood, kRMBODebugLogMessage];
+    NSArray *btBoardCommands =  @[kRMBOMoveRobot, kRMBOHeadTilt, kRMBOTurnInPlaceClockwise,
+                                kRMBOTurnInPlaceCounterClockwise, kRMBOStopRobotMovement];
+    
+    // FIXME: until RomiboClient can tell us whether it's using Romibo v6 hardware (using the Romo tank)
+    // or Romibo V7 hardware (using OLogic's custom motor drivers), we're just sending movement
+    // commands to _both_ the iPod and the custom board.  Remove these duplicated messages when
+    // RomiboClient has been updated enough to report its hardwarae version -- ETJ, 22 August 2014
+    NSData *paramsData = [NSKeyedArchiver archivedDataWithRootObject:commandDict];
+    [self sendDataToIPod:paramsData];
+    
+    if ( ( _isV6Hardware == NO) && [btBoardCommands containsObject:commandDict[@"command"]]){
+        // Package our data for the Bluetooth board and send it
         [self sendCommandToBTBoard:commandDict];
     }
+    
                 
 }
 
