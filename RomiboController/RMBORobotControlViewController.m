@@ -621,7 +621,7 @@
         
         // Buuut... turns feel twitchy and too fast.  Instead, we want slower 
         // speed closer to the center and  
-        motorSpeed = (float)pow( motorSpeed, 4);
+        motorSpeed = (float)pow( motorSpeed, 2);
         
         // because x & y describe a 2-unit square, not a circle, 
         // clip motorSpeed to 1
@@ -769,7 +769,12 @@ SInt8 scaleToSInt8( float x, float domainMin, float domainMax)
         // use two constants, kRMBOHeadTiltLeftRight & kRMBOHeadTiltForwardBack
         // and set those separately. -ETJ 20 Aug 2014
         
-        _last_tiltForwardBack = (UInt8)[commandDict[@"angle"] floatValue];
+        float angle = [commandDict[@"angle"] floatValue];
+        // FIXME: we should grab min and max from slider, not hardwired like here:
+        
+        _last_tiltForwardBack = (UInt8)((angle-60)/(120-60)* 255);
+        
+        // _last_tiltForwardBack = (UInt8)[commandDict[@"angle"] floatValue];
         // ETJ DEBUG
         NSLog(@"%@", commandDict[@"angle"]);
         NSLog(@"kRMBOHeadTiltForwardBack set to %d", _last_tiltForwardBack);
