@@ -1,1 +1,32 @@
-<?xml version='1.0' encoding='UTF-8'?><Workspace version='1.0'><FileRef location='group:RomiboController.xcodeproj'/><FileRef location='group:Pods/Pods.xcodeproj'/></Workspace>
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:RomiboController/Bluetooth_LE"
+      name = "Bluetooth_LE">
+      <FileRef
+         location = "group:ConnectionManager.h">
+      </FileRef>
+      <FileRef
+         location = "group:ConnectionManager.m">
+      </FileRef>
+      <FileRef
+         location = "group:ProximityTag.h">
+      </FileRef>
+      <FileRef
+         location = "group:ProximityTag.m">
+      </FileRef>
+      <FileRef
+         location = "group:TagLocationManager.h">
+      </FileRef>
+      <FileRef
+         location = "group:TagLocationManager.m">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:RomiboController.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>

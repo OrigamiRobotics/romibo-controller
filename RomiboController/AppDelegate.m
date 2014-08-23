@@ -185,7 +185,7 @@
         
         RMBOCategory *category = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:_managedObjectContext];
         
-        [category setDisplayOrder:[NSNumber numberWithInteger:fetchedCategories.count + 1]];
+        [category setDisplayOrder:@(fetchedCategories.count + 1)];
         [category setName:paletteDict[@"name"]];
         
         for (NSDictionary *actionDict in actionsDict) {

@@ -65,7 +65,7 @@
 {
     for (NSUInteger i = 0; i < [_fetchedButtons count]; i++) {
         if ([_fetchedButtons[i] isKindOfClass:[RMBOAction class]]) {
-            [_fetchedButtons[i] setThreeBasedIndex:[NSNumber numberWithInteger:i]];
+            [_fetchedButtons[i] setThreeBasedIndex:@(i)];
         }
     }
 }

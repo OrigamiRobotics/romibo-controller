@@ -39,7 +39,7 @@
     [self.view setBackgroundColor:[UIColor rmbo_blueStarBackground]];
     
 	if (!_mainContext) {
-        AppDelegate *del = [[UIApplication sharedApplication] delegate];
+        AppDelegate *del = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         _mainContext = [del managedObjectContext];
     }
     
@@ -97,7 +97,7 @@
 {
     RMBOCategory *category = [NSEntityDescription insertNewObjectForEntityForName:@"Category" inManagedObjectContext:_mainContext];
     
-    [category setDisplayOrder:[NSNumber numberWithInteger:_fetchedCategories.count + 1]];
+    [category setDisplayOrder:@(_fetchedCategories.count + 1)];
     
     NSError *error;
     [_mainContext save:&error];

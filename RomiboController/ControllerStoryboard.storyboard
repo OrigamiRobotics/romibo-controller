@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="EMw-LI-4pv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="EMw-LI-4pv">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
@@ -274,6 +274,13 @@
                                             <action selector="changeMood:" destination="EMw-LI-4pv" eventType="touchUpInside" id="fds-1D-ZFc"/>
                                         </connections>
                                     </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="90" minValue="60" maxValue="120" translatesAutoresizingMaskIntoConstraints="NO" id="ngF-dQ-f4k">
+                                        <rect key="frame" x="238" y="100" width="204" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="robotHeadTiltSliderAction:" destination="EMw-LI-4pv" eventType="valueChanged" id="nt2-af-HRk"/>
+                                        </connections>
+                                    </slider>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="A8t-Vr-sEO" firstAttribute="top" secondItem="N8k-wF-qlU" secondAttribute="bottom" constant="42" id="3Vb-0V-bXJ"/>
@@ -324,6 +331,7 @@
                         <outlet property="curiousButton" destination="sJD-VR-05P" id="lFK-yw-wUP"/>
                         <outlet property="editorButton" destination="edF-Eu-diT" id="iU6-f8-iLZ"/>
                         <outlet property="excitedButton" destination="qvy-hA-Vn7" id="s3m-SH-qKo"/>
+                        <outlet property="headTiltSlider" destination="ngF-dQ-f4k" id="RP3-ft-zFY"/>
                         <outlet property="indifferentButton" destination="bdr-fe-iki" id="4fA-V2-PnP"/>
                         <outlet property="joyStickView" destination="riZ-UX-Of3" id="5bh-Kc-HYL"/>
                         <outlet property="notConnectedLabel" destination="uNP-tP-g5X" id="JaQ-at-7Dv"/>
